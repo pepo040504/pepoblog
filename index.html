@@ -16,30 +16,43 @@
     <!-- Logo and title section -->
     <div class="flex items-center justify-between mb-6">
       <div class="flex-shrink-0">
-        <img src="../assets/logo.png" alt="Logo" class="h-16 md:h-20" />
+        <img src="assets/logo.png" alt="Logo" class="h-16 md:h-20" />
       </div>
       <div class="text-right">
-        <h1 class="text-2xl md:text-4xl font-bold text-blue-500 mb-2">Placeholder Article 1</h1>
+        <h1 class="text-2xl md:text-4xl font-bold text-blue-500 mb-2">PepoBlog4</h1>
+        <p class="text-sm md:text-lg text-gray-600">Personal stories, thoughts, and inspiration</p>
       </div>
     </div>
     
     <!-- Navigation with blue background - responsive -->
     <nav class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full px-4 md:px-8 py-3 flex justify-center space-x-2 md:space-x-8 shadow-lg">
-      <a href="../index.html" class="text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all text-sm md:text-base">Home</a>
-      <a href="../about.html" class="text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all text-sm md:text-base">About Me</a>
-      <a href="../contact.html" class="text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all text-sm md:text-base">Write Me</a>
+      <a href="index.html" class="text-white font-semibold bg-white/20 px-3 md:px-4 py-2 rounded-full text-sm md:text-base">Home</a>
+      <a href="about.html" class="text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all text-sm md:text-base">About Me</a>
+      <a href="contact.html" class="text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all text-sm md:text-base">Write Me</a>
     </nav>
   </div>
 </header>
-<main class="max-w-2xl mx-auto px-4 py-10 mt-40">
-  <article class="bg-white p-4 md:p-6 rounded-xl shadow">
-    <img src="https://picsum.photos/seed/article1full/800/400" alt="Article full image" class="mb-4 rounded-lg w-full object-cover" />
-    <h2 class="text-lg md:text-xl font-semibold mb-4">Placeholder Article 1</h2>
-    <p class="text-sm md:text-base leading-relaxed">This is the full content of article 1. Replace this with your actual blog content. It includes a full-size image at the top.</p>
-  </article>
+<main class="max-w-4xl mx-auto px-4 py-12 mt-40">
+  <h2 class="text-2xl font-semibold mb-8 text-gray-800">Latest Articles</h2>
+  <div class="grid md:grid-cols-2 gap-8">
+    <a href="articles/article1.html" class="group block bg-white border rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
+      <img src="https://picsum.photos/seed/article1thumb/400/200" alt="Article 1 image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="p-6">
+        <h3 class="text-xl font-bold mb-3 text-gray-800 group-hover:text-blue-600 transition-colors">Placeholder Article 1</h3>
+        <p class="text-gray-600 leading-relaxed">This is a short preview of article 1...</p>
+      </div>
+    </a>
+    <a href="articles/article2.html" class="group block bg-white border rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
+      <img src="https://picsum.photos/seed/article2thumb/400/200" alt="Article 2 image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="p-6">
+        <h3 class="text-xl font-bold mb-3 text-gray-800 group-hover:text-blue-600 transition-colors">Placeholder Article 2</h3>
+        <p class="text-gray-600 leading-relaxed">This is a short preview of article 2...</p>
+      </div>
+    </a>
+  </div>
 </main>
-<footer class="mt-10 p-4 text-center text-sm text-gray-500 border-t">
-  © 2025 PepoBlog4. All rights reserved.
+<footer class="mt-16 p-6 text-center text-gray-500 border-t bg-white">
+  <p>© 2025 PepoBlog4. All rights reserved.</p>
 </footer>
 </body>
 </html>
