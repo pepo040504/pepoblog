@@ -11,29 +11,27 @@
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
-
 <header class="bg-white shadow-lg border-b-4 border-blue-500">
   <div class="max-w-6xl mx-auto px-4 py-8">
     <!-- Logo and title section -->
     <div class="flex items-center justify-center mb-6">
-      <div class="flex-shrink-0 mr-8">
-        <img src="assets/logo.png" alt="Logo" class="h-20" />
+      <div class="flex-shrink-0 mr-4 md:mr-8">
+        <img src="assets/logo.png" alt="Logo" class="h-16 md:h-20" />
       </div>
-      <div>
-        <h1 class="text-4xl font-bold text-gray-800 mb-2">Welcome to PepoBlog4</h1>
-        <p class="text-lg text-gray-600">Personal stories, thoughts, and inspiration</p>
+      <div class="text-center md:text-left">
+        <h1 class="text-2xl md:text-4xl font-bold text-gray-800 mb-2">Welcome to PepoBlog4</h1>
+        <p class="text-sm md:text-lg text-gray-600">Personal stories, thoughts, and inspiration</p>
       </div>
     </div>
     
-    <!-- Navigation with blue background -->
-    <nav class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full px-8 py-3 flex justify-center space-x-8 shadow-lg">
-      <a href="index.html" class="text-white font-semibold bg-white/20 px-4 py-2 rounded-full">Home</a>
-      <a href="about.html" class="text-blue-100 hover:text-white hover:bg-white/10 px-4 py-2 rounded-full transition-all">About Me</a>
-      <a href="contact.html" class="text-blue-100 hover:text-white hover:bg-white/10 px-4 py-2 rounded-full transition-all">Write Me</a>
+    <!-- Navigation with blue background - responsive -->
+    <nav class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full px-4 md:px-8 py-3 flex justify-center space-x-2 md:space-x-8 shadow-lg">
+      <a href="index.html" class="text-white font-semibold bg-white/20 px-3 md:px-4 py-2 rounded-full text-sm md:text-base">Home</a>
+      <a href="about.html" class="text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all text-sm md:text-base">About Me</a>
+      <a href="contact.html" class="text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all text-sm md:text-base">Write Me</a>
     </nav>
   </div>
 </header>
-
 <main class="max-w-4xl mx-auto px-4 py-12">
   <h2 class="text-2xl font-semibold mb-8 text-gray-800">Latest Articles</h2>
   <div class="grid md:grid-cols-2 gap-8">
@@ -53,7 +51,6 @@
     </a>
   </div>
 </main>
-
 <footer class="mt-16 p-6 text-center text-gray-500 border-t bg-white">
   <p>© 2025 PepoBlog4. All rights reserved.</p>
 </footer>
