@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,43 +7,48 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {{ font-family: 'Inter', sans-serif; }}
+    body { font-family: 'Inter', sans-serif; }
   </style>
 </head>
-<body class="bg-white text-gray-800">
+<body class="bg-gray-50 text-gray-800">
 
-<header class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-6 text-center shadow">
-  <img src="https://pepo040504.github.io/pepoblog4/assets/logo.png" alt="Logo" class="mx-auto h-16 mb-4" />
-  <h1 class="text-3xl font-bold">Welcome to PepoBlog4</h1>
-  <p class="text-sm mt-2">Personal stories, thoughts, and inspiration</p>
-  <nav class="mt-4 space-x-4">
-    <a href="index.html" class="underline">Home</a>
-    <a href="about.html" class="underline">About Me</a>
-    <a href="contact.html" class="underline">Write Me</a>
+<header class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-8 text-center shadow-lg">
+  <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 inline-block mb-4">
+    <div class="w-16 h-16 bg-white rounded-xl flex items-center justify-center mx-auto">
+      <span class="text-2xl font-bold text-blue-600">P</span>
+    </div>
+  </div>
+  <h1 class="text-4xl font-bold mb-2">Welcome to PepoBlog4</h1>
+  <p class="text-blue-100 text-lg mb-6">Personal stories, thoughts, and inspiration</p>
+  <nav class="space-x-6">
+    <a href="index.html" class="text-white hover:text-blue-200 transition-colors font-medium border-b-2 border-white/50 pb-1">Home</a>
+    <a href="about.html" class="text-blue-100 hover:text-white transition-colors font-medium">About Me</a>
+    <a href="contact.html" class="text-blue-100 hover:text-white transition-colors font-medium">Write Me</a>
   </nav>
 </header>
-<main class="max-w-4xl mx-auto px-4 py-8">
-  <h2 class="text-xl font-semibold mb-6">Latest Articles</h2>
-  <div class="grid md:grid-cols-2 gap-6">
-    <a href="articles/article1.html" class="block border rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-      <img src="https://picsum.photos/seed/article1thumb/400/200" alt="Article 1 image" class="w-full h-48 object-cover" />
-      <div class="p-4">
-        <h3 class="text-lg font-bold mb-2">Placeholder Article 1</h3>
-        <p class="text-sm text-gray-600">This is a short preview of article 1...</p>
+
+<main class="max-w-4xl mx-auto px-4 py-12">
+  <h2 class="text-2xl font-semibold mb-8 text-gray-800">Latest Articles</h2>
+  <div class="grid md:grid-cols-2 gap-8">
+    <a href="articles/article1.html" class="group block bg-white border rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
+      <img src="https://picsum.photos/seed/article1thumb/400/200" alt="Article 1 image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="p-6">
+        <h3 class="text-xl font-bold mb-3 text-gray-800 group-hover:text-blue-600 transition-colors">Placeholder Article 1</h3>
+        <p class="text-gray-600 leading-relaxed">This is a short preview of article 1...</p>
       </div>
     </a>
-    <a href="articles/article2.html" class="block border rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-      <img src="https://picsum.photos/seed/article2thumb/400/200" alt="Article 2 image" class="w-full h-48 object-cover" />
-      <div class="p-4">
-        <h3 class="text-lg font-bold mb-2">Placeholder Article 2</h3>
-        <p class="text-sm text-gray-600">This is a short preview of article 2...</p>
+    <a href="articles/article2.html" class="group block bg-white border rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
+      <img src="https://picsum.photos/seed/article2thumb/400/200" alt="Article 2 image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+      <div class="p-6">
+        <h3 class="text-xl font-bold mb-3 text-gray-800 group-hover:text-blue-600 transition-colors">Placeholder Article 2</h3>
+        <p class="text-gray-600 leading-relaxed">This is a short preview of article 2...</p>
       </div>
     </a>
   </div>
 </main>
 
-  <footer class="mt-10 p-4 text-center text-sm text-gray-500 border-t">
-    © 2025 PepoBlog4. All rights reserved.
-  </footer>
+<footer class="mt-16 p-6 text-center text-gray-500 border-t bg-white">
+  <p>© 2025 PepoBlog4. All rights reserved.</p>
+</footer>
 </body>
 </html>
