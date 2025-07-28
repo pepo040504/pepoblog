@@ -3,40 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PepoBlog4</title>
-  <link rel="icon" href="favicon.png" type="image/png"> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>About Me - PepoBlog</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { font-family: 'Inter', sans-serif; }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-900">
 <header class="bg-white shadow-lg border-b-4 border-blue-500 fixed top-0 left-0 right-0 z-50">
   <div class="max-w-6xl mx-auto px-4 py-4 md:py-8">
     <div class="flex items-center justify-center mb-6">
       <div class="flex-shrink-0 mr-2 md:mr-8">
-        <img src="assets/logo.png" alt="Logo" class="h-16 md:h-20" />
+        <img src="assets/logo.png" alt="PepoBlog Logo" class="h-16 md:h-20" />
       </div>
       <div class="text-center md:text-left px-2">
-        <h1 class="text-2xl md:text-4xl font-bold bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent mb-2">PepoBlog4</h1>
-        <p class="text-sm md:text-lg text-gray-600">Personal stories, thoughts,<br>and inspiration</p> </div>
+        <h1 class="text-2xl md:text-4xl font-bold bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent mb-2">PepoBlog</h1>
+        <p class="text-base md:text-xl text-gray-600">Personal stories, thoughts,<br>and inspiration</p>
+      </div>
     </div>
     
     <nav class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full px-4 md:px-8 py-4 flex justify-center space-x-3 md:space-x-8 shadow-lg">
-      <a href="index.html" class="text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full text-sm md:text-base">Home</a>
-      <a href="about.html" class="text-white font-semibold bg-white/20 px-3 md:px-4 py-2 rounded-full text-sm md:text-base">About Me</a>
-      <a href="contact.html" class="text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all text-sm md:text-base">Write Me</a>
+      <a href="index.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full md:text-lg">Home</a>
+      <a href="about.html" class="text-white font-semibold bg-white/20 px-3 md:px-4 py-2 rounded-full text-base md:text-lg">About Me</a>
+      <a href="contact.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all md:text-lg">Write Me</a>
     </nav>
   </div>
 </header>
-<main class="max-w-3xl mx-auto px-4 py-12 mt-48 md:mt-64">
-  <div class="bg-white shadow-lg rounded-2xl p-8">
-    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-gray-800">Hi, I'm Pepo</h2>
-    <p class="text-gray-700 text-base md:text-lg leading-relaxed">This is a placeholder for your personal story. You can talk about your passions, what you write about, or your background.</p>
+
+<main class="max-w-4xl mx-auto px-4 py-8 mt-48 md:mt-64">
+  <div class="bg-white p-6 md:p-8 lg:p-10 rounded-xl shadow-lg">
+    <header class="mb-6 md:mb-8">
+      <h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-gray-900 leading-tight">Hi, I'm Pepo</h2>
+    </header>
+
+    <div class="prose prose-lg md:prose-xl max-w-none">
+      <p class="text-base md:text-lg leading-relaxed mb-6 md:mb-8 text-gray-700">
+        Welcome to my corner of the internet! I'm passionate about sharing personal stories, thoughts, and experiences that might inspire or help others on their own journeys.
+      </p>
+      
+      <p class="text-base md:text-lg leading-relaxed mb-6 md:mb-8 text-gray-700">
+        Currently pursuing a joint degree in Cybersecurity from EPFL and ETH Zurich, I love exploring the intersection of technology, education, and personal growth. Through this blog, I aim to document my experiences and share insights that could be valuable to fellow students and professionals.
+      </p>
+
+      <p class="text-base md:text-lg leading-relaxed mb-6 md:mb-8 text-gray-700">
+        When I'm not studying or writing, you might find me working on various projects, learning new skills, or simply reflecting on the journey that brought me here. I believe that every experience, whether challenging or rewarding, has something valuable to teach us.
+      </p>
+
+      <p class="text-base md:text-lg leading-relaxed text-gray-700 border-l-4 border-blue-500 pl-4 md:pl-6 bg-blue-50 py-4 md:py-6 rounded-r-lg">
+        Thank you for taking the time to visit my blog. I hope you find something here that resonates with you, and I'd love to hear your thoughts and stories as well.
+      </p>
+    </div>
   </div>
 </main>
-<footer class="mt-16 p-6 text-center text-gray-500 border-t bg-white">
-  <p>© 2025 PepoBlog4. All rights reserved.</p>
+
+<footer class="mt-12 md:mt-16 p-6 md:p-8 text-center text-sm md:text-base text-gray-600 border-t bg-white">
+  <p>© 2025 PepoBlog. All rights reserved.</p>
 </footer>
 </body>
 </html>
