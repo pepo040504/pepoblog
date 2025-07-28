@@ -5,54 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PepoBlog</title>
   <link rel="icon" href="favicon.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { font-family: 'Inter', sans-serif; }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-900">
 <header class="bg-white shadow-lg border-b-4 border-blue-500 fixed top-0 left-0 right-0 z-50">
   <div class="max-w-6xl mx-auto px-4 py-4 md:py-8">
     <div class="flex items-center justify-center mb-6">
       <div class="flex-shrink-0 mr-2 md:mr-8">
-        <img src="assets/logo.png" alt="Logo" class="h-16 md:h-20" />
+        <img src="assets/logo.png" alt="PepoBlog Logo" class="h-16 md:h-20" />
       </div>
       <div class="text-center md:text-left px-2">
         <h1 class="text-2xl md:text-4xl font-bold bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent mb-2">PepoBlog</h1>
-        <p class="text-sm md:text-lg text-gray-600">Personal stories, thoughts,<br>and inspiration</p>
+        <p class="text-base md:text-xl text-gray-600">Personal stories, thoughts,<br>and inspiration</p>
       </div>
     </div>
-
     <nav class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full px-4 md:px-8 py-4 flex justify-center space-x-3 md:space-x-8 shadow-lg">
-      <a href="index.html" class="text-white font-semibold bg-white/20 px-3 md:px-4 py-2 rounded-full text-sm md:text-base">Home</a>
-      <a href="about.html" class="text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all text-sm md:text-base">About Me</a>
-      <a href="contact.html" class="text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all text-sm md:text-base">Write Me</a>
+      <a href="index.html" class="text-white font-semibold bg-white/20 px-3 md:px-4 py-2 rounded-full text-base md:text-lg">Home</a>
+      <a href="about.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all md:text-lg">About Me</a>
+      <a href="contact.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all md:text-lg">Write Me</a>
     </nav>
   </div>
 </header>
-<main class="max-w-4xl mx-auto px-4 py-12 mt-48 md:mt-64">
-  <h2 class="text-2xl font-semibold mb-8 text-gray-800">Latest Articles</h2>
-  <div class="grid md:grid-cols-2 gap-8">
-    <a href="articles/article1.html" class="group block bg-white border rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
-      <img src="https://picsum.photos/seed/article1thumb/400/200" alt="Article 1 image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+
+<main class="max-w-4xl mx-auto px-4 py-8 mt-48 md:mt-64">
+  <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-gray-900">Latest Articles</h2>
+  <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+    <a href="articles/article1.html" class="group block bg-white border rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
+      <img src="https://picsum.photos/seed/article1thumb/400/200" alt="Article 1 thumbnail image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
       <div class="p-6">
-        <h3 class="text-xl font-bold mb-3 text-gray-800 group-hover:text-blue-600 transition-colors">Placeholder Article 1</h3>
-        <p class="text-gray-600 leading-relaxed">This is a short preview of article 1...</p>
-        <p class="text-sm text-gray-500 mt-2">Published: <span class="font-medium">July 28, 2025</span></p>
+        <h3 class="text-lg md:text-xl font-semibold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">My Admission to EPFL-ETHZ</h3>
+        <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-3">After weeks of research into finding the best university to achieve my career goals, I concluded that EPFL and ETH Zurich were deal-breakers...</p>
+        <p class="text-base md:text-lg text-gray-600 mt-2">Published: <span class="font-medium text-gray-700">July 28, 2025</span></p>
       </div>
     </a>
-    <a href="articles/article2.html" class="group block bg-white border rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
-      <img src="https://picsum.photos/seed/article2thumb/400/200" alt="Article 2 image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+    <a href="articles/article2.html" class="group block bg-white border rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
+      <img src="https://picsum.photos/seed/article2thumb/400/200" alt="Article 2 thumbnail image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
       <div class="p-6">
-        <h3 class="text-xl font-bold mb-3 text-gray-800 group-hover:text-blue-600 transition-colors">Placeholder Article 2</h3>
-        <p class="text-gray-600 leading-relaxed">This is a short preview of article 2...</p>
-        <p class="text-sm text-gray-500 mt-2">Published: <span class="font-medium">July 25, 2025</span></p>
+        <h3 class="text-lg md:text-xl font-semibold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">Placeholder Article 2</h3>
+        <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-3">This is a short preview of article 2. Coming soon with more insights and personal experiences...</p>
+        <p class="text-base md:text-lg text-gray-600 mt-2">Published: <span class="font-medium text-gray-700">July 25, 2025</span></p>
       </div>
     </a>
   </div>
 </main>
-<footer class="mt-16 p-6 text-center text-gray-500 border-t bg-white">
+
+<footer class="mt-12 md:mt-16 p-6 md:p-8 text-center text-sm md:text-base text-gray-600 border-t bg-white">
   <p>© 2025 PepoBlog. All rights reserved.</p>
 </footer>
 </body>
