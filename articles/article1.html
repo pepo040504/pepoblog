@@ -5,19 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Admission at EPFL-ETHZ - PepoBlog</title>
   <link rel="icon" href="../favicon.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=sw ap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { font-family: 'Inter', sans-serif; }
-    /* Custom CSS for sticky TOC - ensures it stays within its parent scroll area */
-    .sticky-top-header {
+    /* Custom CSS for grid layout on medium screens and up */
+    @media (min-width: 768px) { /* Tailwind's 'md' breakpoint */
+        .md\:grid-cols-main-sidebar {
+            grid-template-columns: 1fr 240px; /* Main content takes 1fr, sidebar is 240px wide */
+        }
+    }
+
+    /* Custom CSS for sticky sidebars - ensures it stays within its parent scroll area */
+    .sticky-top-offset {
         position: sticky;
         top: calc(theme('spacing.48') + 1rem); /* Adjust based on header height + desired offset */
-        /* For md and up, adjust the 'top' based on md:mt-64 */
     }
     @media (min-width: 768px) {
-        .md\\:sticky-top-header {
-            top: calc(theme('spacing.64') + 1rem); /* Adjust based on header height + desired offset */
+        .md\:sticky-top-offset {
+            top: calc(theme('spacing.64') + 1rem); /* Adjust based on header height + desired offset for md */
         }
     }
   </style>
@@ -43,23 +49,9 @@
   </div>
 </header>
 
-<div class="max-w-6xl mx-auto px-4 py-10 mt-48 md:mt-64 grid grid-cols-1 md:grid-cols-layout gap-8">
+<div class="max-w-6xl mx-auto px-4 py-10 mt-48 md:mt-64 grid grid-cols-1 md:grid-cols-main-sidebar gap-8">
 
-    <aside class="hidden md:block">
-        <div class="bg-white p-4 rounded-xl shadow sticky-top-header md:sticky-top-header">
-            <h4 class="font-bold text-gray-700 mb-3 text-base">Table of Contents</h4>
-            <ul class="space-y-2 text-sm">
-                <li><a href="#admission-intro" class="text-blue-600 hover:underline">My Admission to EPFL-ETHZ</a></li>
-                <li><a href="#academics" class="text-blue-600 hover:underline">Academics: Beyond Extraordinary Achievements</a></li>
-                <li><a href="#my-cv" class="text-blue-600 hover:underline">My CV: Solid, Not Standout</a></li>
-                <li><a href="#motivational-letter" class="text-blue-600 hover:underline">The Motivational Letter: Two Weeks of Crafting</a></li>
-                <li><a href="#reference-letters" class="text-blue-600 hover:underline">Reference Letters: Quality Over Fame</a></li>
-            </ul>
-        </div>
-    </aside>
-
-    <main class="col-span-1 md:col-span-2"> <article class="bg-white p-4 md:p-6 rounded-xl shadow">
-            <img src="https://picsum.photos/seed/epfl-ethz-admission/800/400" alt="Abstract image representing university admission or a successful journey" class="mb-4 rounded-lg w-full object-cover" />
+    <main class="order-2 md:order-none"> <article class="bg-white p-4 md:p-6 rounded-xl shadow max-w-3xl mx-auto md:mx-0"> <img src="https://picsum.photos/seed/epfl-ethz-admission/800/400" alt="Abstract image representing university admission or a successful journey" class="mb-4 rounded-lg w-full object-cover" />
             <h2 id="admission-intro" class="text-lg md:text-xl font-semibold mb-2">My Admission to EPFL-ETHZ: A Look Behind the Curtain</h2>
             <p class="text-sm text-gray-500 mb-4">Published on: <span class="font-medium">July 28, 2025</span></p>
 
@@ -102,8 +94,17 @@
         </article>
     </main>
 
-    <aside class="hidden md:block">
-        <div class="bg-white p-4 rounded-xl shadow sticky-top-header md:sticky-top-header">
+    <aside class="order-1 md:order-none"> <div class="bg-white p-4 rounded-xl shadow sticky-top-offset md:sticky-top-offset mb-6"> <h4 class="font-bold text-gray-700 mb-3 text-base">Table of Contents</h4>
+            <ul class="space-y-2 text-sm">
+                <li><a href="#admission-intro" class="text-blue-600 hover:underline">My Admission to EPFL-ETHZ</a></li>
+                <li><a href="#academics" class="text-blue-600 hover:underline">Academics: Beyond Extraordinary Achievements</a></li>
+                <li><a href="#my-cv" class="text-blue-600 hover:underline">My CV: Solid, Not Standout</a></li>
+                <li><a href="#motivational-letter" class="text-blue-600 hover:underline">The Motivational Letter: Two Weeks of Crafting</a></li>
+                <li><a href="#reference-letters" class="text-blue-600 hover:underline">Reference Letters: Quality Over Fame</a></li>
+            </ul>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl shadow sticky-top-offset md:sticky-top-offset">
             <h4 class="font-bold text-gray-700 mb-3 text-base">More from PepoBlog</h4>
             <ul class="space-y-2 text-sm">
                 <li><a href="#" class="text-blue-600 hover:underline">My Journey into Web Development (Placeholder)</a></li>
