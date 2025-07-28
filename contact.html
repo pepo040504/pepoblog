@@ -3,50 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PepoBlog4</title>
-  <link rel="icon" href="favicon.png" type="image/png"> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Write Me - PepoBlog</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { font-family: 'Inter', sans-serif; }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-<header class="bg-white shadow-lg border-b-4 border-blue-500 fixed top-0 left-0 right-0 z-50"> <div class="max-w-6xl mx-auto px-4 py-4 md:py-8">
+<body class="bg-gray-50 text-gray-900">
+<header class="bg-white shadow-lg border-b-4 border-blue-500 fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 py-4 md:py-8">
     <div class="flex items-center justify-center mb-6">
       <div class="flex-shrink-0 mr-2 md:mr-8">
-        <img src="assets/logo.png" alt="Logo" class="h-16 md:h-20" />
+        <img src="assets/logo.png" alt="PepoBlog Logo" class="h-16 md:h-20" />
       </div>
       <div class="text-center md:text-left px-2">
-        <h1 class="text-2xl md:text-4xl font-bold bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent mb-2">PepoBlog4</h1>
-        <p class="text-sm md:text-lg text-gray-600">Personal stories, thoughts,<br>and inspiration</p> </div>
+        <h1 class="text-2xl md:text-4xl font-bold bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent mb-2">PepoBlog</h1>
+        <p class="text-base md:text-xl text-gray-600">Personal stories, thoughts,<br>and inspiration</p>
+      </div>
     </div>
     
     <nav class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full px-4 md:px-8 py-4 flex justify-center space-x-3 md:space-x-8 shadow-lg">
-      <a href="index.html" class="text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full text-sm md:text-base">Home</a>
-      <a href="about.html" class="text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all text-sm md:text-base">About Me</a>
-      <a href="contact.html" class="text-white font-semibold bg-white/20 px-3 md:px-4 py-2 rounded-full text-sm md:text-base">Write Me</a>
+      <a href="index.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full md:text-lg">Home</a>
+      <a href="about.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all md:text-lg">About Me</a>
+      <a href="contact.html" class="text-white font-semibold bg-white/20 px-3 md:px-4 py-2 rounded-full text-base md:text-lg">Write Me</a>
     </nav>
   </div>
 </header>
-<main class="max-w-2xl mx-auto px-4 py-12 mt-48 md:mt-64">
-  <form action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST" class="space-y-6 bg-white p-8 shadow-lg rounded-2xl">
-    <div>
-      <label class="block text-sm font-semibold text-gray-700 mb-2">Name</label>
-      <input type="text" name="name" required class="w-full border-2 border-gray-200 p-3 rounded-xl focus:border-blue-500 focus:outline-none transition-colors" />
-    </div>
-    <div>
-      <label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
-      <input type="email" name="email" required class="w-full border-2 border-gray-200 p-3 rounded-xl focus:border-blue-500 focus:outline-none transition-colors" />
-    </div>
-    <div>
-      <label class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
-      <textarea name="message" required class="w-full border-2 border-gray-200 p-3 rounded-xl h-32 focus:border-blue-500 focus:outline-none transition-colors resize-none"></textarea>
-    </div>
-    <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-3 rounded-xl hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 font-semibold shadow-lg">Send Message</button>
-  </form>
+
+<main class="max-w-3xl mx-auto px-4 py-8 mt-48 md:mt-64">
+  <div class="bg-white p-6 md:p-8 lg:p-10 rounded-xl shadow-lg">
+    <header class="mb-6 md:mb-8">
+      <h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-gray-900 leading-tight">Get in Touch</h2>
+      <p class="text-base md:text-lg text-gray-700 leading-relaxed">I'd love to hear from you. Send me a message and I'll get back to you as soon as possible.</p>
+    </header>
+
+    <form action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST" class="space-y-6">
+      <div>
+        <label class="block text-base md:text-lg font-semibold text-gray-900 mb-3">Name</label>
+        <input type="text" name="name" required class="w-full border-2 border-gray-300 p-3 md:p-4 rounded-xl focus:border-blue-500 focus:outline-none transition-colors text-base md:text-lg" />
+      </div>
+      <div>
+        <label class="block text-base md:text-lg font-semibold text-gray-900 mb-3">Email</label>
+        <input type="email" name="email" required class="w-full border-2 border-gray-300 p-3 md:p-4 rounded-xl focus:border-blue-500 focus:outline-none transition-colors text-base md:text-lg" />
+      </div>
+      <div>
+        <label class="block text-base md:text-lg font-semibold text-gray-900 mb-3">Message</label>
+        <textarea name="message" required class="w-full border-2 border-gray-300 p-3 md:p-4 rounded-xl h-32 md:h-40 focus:border-blue-500 focus:outline-none transition-colors resize-none text-base md:text-lg"></textarea>
+      </div>
+      <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-3 md:py-4 rounded-xl hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 font-semibold shadow-lg text-base md:text-lg">Send Message</button>
+    </form>
+  </div>
 </main>
-<footer class="mt-16 p-6 text-center text-gray-500 border-t bg-white">
-  <p>© 2025 PepoBlog4. All rights reserved.</p>
+
+<footer class="mt-12 md:mt-16 p-6 md:p-8 text-center text-sm md:text-base text-gray-600 border-t bg-white">
+  <p>© 2025 PepoBlog. All rights reserved.</p>
 </footer>
 </body>
 </html>
