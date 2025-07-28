@@ -9,27 +9,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { font-family: 'Inter', sans-serif; }
-
-    /* Custom CSS for grid layout on medium screens and up */
-    @media (min-width: 768px) { /* Tailwind's 'md' breakpoint */
-        .md\:grid-cols-main-sidebar {
-            /* Define 2 columns: main content (flexible) and sidebar (fixed width) */
-            grid-template-columns: 1fr 240px;
-        }
-    }
-
-    /* Custom CSS for sticky sidebars */
-    .sticky-top-offset {
-        position: sticky;
-        top: calc(theme('spacing.48') + 1rem); /* Default top for smaller screens */
-        align-self: start; /* This is crucial for sticky in grid/flex - makes the item "stick" to the start of its row */
-    }
-
-    @media (min-width: 768px) {
-        .md\:sticky-top-offset {
-            top: calc(theme('spacing.64') + 1rem); /* Adjusted top for md and larger screens */
-        }
-    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -53,75 +32,62 @@
   </div>
 </header>
 
-<div class="max-w-6xl mx-auto px-4 py-10 mt-48 md:mt-64 grid grid-cols-1 md:grid-cols-main-sidebar gap-8">
+<main class="max-w-4xl mx-auto px-4 py-10 mt-48 md:mt-64">
+  <article class="bg-white p-4 md:p-6 rounded-xl shadow">
+    <img src="https://picsum.photos/seed/epfl-ethz-admission/800/400" alt="Abstract image representing university admission or a successful journey" class="mb-4 rounded-lg w-full object-cover" />
+    <h2 class="text-lg md:text-xl font-semibold mb-2">My Admission to EPFL-ETHZ: A Look Behind the Curtain</h2>
+    <p class="text-sm text-gray-500 mb-4">Published on: <span class="font-medium">July 28, 2025</span></p>
 
-    <main class="order-2 md:order-none"> <article class="bg-white p-4 md:p-6 rounded-xl shadow max-w-3xl mx-auto md:mx-0">
-            <img src="https://picsum.photos/seed/epfl-ethz-admission/800/400" alt="Abstract image representing university admission or a successful journey" class="mb-4 rounded-lg w-full object-cover" />
-            <h2 id="admission-intro" class="text-lg md:text-xl font-semibold mb-2">My Admission to EPFL-ETHZ: A Look Behind the Curtain</h2>
-            <p class="text-sm text-gray-500 mb-4">Published on: <span class="font-medium">July 28, 2025</span></p>
+    <p class="text-sm md:text-base leading-relaxed mb-4">
+      After weeks of research into finding the best university to achieve my career goals, I concluded that <strong>EPFL and ETH Zurich were deal-breakers</strong>. There are countless reasons why I chose these Swiss universities, but that's a story for another time. The program I was admitted to is a <strong>joint degree in Cybersecurity from EPFL and ETH Zurich</strong>, a highly selective program, as you'll find anywhere on the internet. I'll now share what I believe was my "entry ticket" to these prestigious schools.
+    </p>
 
-            <p class="text-sm md:text-base leading-relaxed mb-4">
-              After weeks of research into finding the best university to achieve my career goals, I concluded that <strong>EPFL and ETH Zurich were deal-breakers</strong>. There are countless reasons why I chose these Swiss universities, but that's a story for another time. The program I was admitted to is a <strong>joint degree in Cybersecurity from EPFL and ETH Zurich</strong>, a highly selective program, as you'll find anywhere on the internet. I'll now share what I believe was my "entry ticket" to these prestigious schools.
-            </p>
+    <h3 class="text-md md:text-lg font-semibold mt-6 mb-2">Academics: Beyond Extraordinary Achievements</h3>
+    <p class="text-sm md:text-base leading-relaxed mb-4">
+      Let's get this out of the way: <strong>no, I don't have a list of extraordinary achievements on my resume!</strong> That said, I graduated with a bachelor's degree in Computer Engineering from the University of Federico II in Naples, Italy. As you can see from various university rankings, this school typically falls between 1000-1500 globally. Not bad, but certainly there are higher-ranked institutions.
+    </p>
+    <p class="text-sm md:text-base leading-relaxed mb-4">
+      What likely made a significant difference was my <strong>grade point average: 29.9/30</strong>. However, I've also met many admitted students with lower averages, so it's not the only factor. For what it's worth, I also graduated from high school with full marks and honors.
+    </p>
 
-            <h3 id="academics" class="text-md md:text-lg font-semibold mt-6 mb-2">Academics: Beyond Extraordinary Achievements</h3>
-            <p class="text-sm md:text-base leading-relaxed mb-4">
-              Let's get this out of the way: <strong>no, I don't have a list of extraordinary achievements on my resume!</strong> That said, I graduated with a bachelor's degree in Computer Engineering from the University of Federico II in Naples, Italy. As you can see from various university rankings, this school typically falls between 1000-1500 globally. Not bad, but certainly there are higher-ranked institutions.
-            </p>
-            <p class="text-sm md:text-base leading-relaxed mb-4">
-              What likely made a significant difference was my <strong>grade point average: 29.9/30</strong>. However, I've also met many admitted students with lower averages, so it's not the only factor. For what it's worth, I also graduated from high school with full marks and honors.
-            </p>
+    <h3 class="text-md md:text-lg font-semibold mt-6 mb-2">My CV: Solid, Not Standout</h3>
+    <p class="text-sm md:text-base leading-relaxed mb-4">
+      My CV is solid and well-structured, but honestly, <strong>there's nothing on it that truly sets it apart</strong>, especially when compared to some of the impressive CVs I've seen. I have some <strong>working experience</strong>, though none directly in my field, having worked as <strong>entertainment staff, a waiter, and a DJ</strong>. I also participated in a few extracurricular activities, ranging from a few days to a month in duration. I also have a strong set of hard skills, having completed about a dozen online courses in Python, C++, Cybersecurity, and Web Development, among others. While I don't believe these individual certificates or activities were game-changers on their own, <strong>collectively, they likely demonstrated my determination and genuine interest</strong> in my field.
+    </p>
 
-            <h3 id="my-cv" class="text-md md:text-lg font-semibold mt-6 mb-2">My CV: Solid, Not Standout</h3>
-            <p class="text-sm md:text-base leading-relaxed mb-4">
-              My CV is solid and well-structured, but honestly, <strong>there's nothing on it that truly sets it apart</strong>, especially when compared to some of the impressive CVs I've seen. I have some <strong>working experience</strong>, though none directly in my field, having worked as <strong>entertainment staff, a waiter, and a DJ</strong>. I also participated in a few extracurricular activities, ranging from a few days to a month in duration. I also have a strong set of hard skills, having completed about a dozen online courses in Python, C++, Cybersecurity, and Web Development, among others. While I don't believe these individual certificates or activities were game-changers on their own, <strong>collectively, they likely demonstrated my determination and genuine interest</strong> in my field.
-            </p>
+    <h3 class="text-md md:text-lg font-semibold mt-6 mb-2">The Motivational Letter: Two Weeks of Crafting</h3>
+    <p class="text-sm md:text-base leading-relaxed mb-4">
+      I dedicated <strong>about two weeks to writing my motivational letter</strong>. I began with a personal anecdote, then discussed my past achievements. After that, I focused on what specifically drew me to these universities and what I hoped to gain from their programs. Finally, I outlined my future career goals.
+    </p>
+    <p class="text-sm md:text-base leading-relaxed mb-4">
+      As many people advised me, <strong>I consciously avoided clichés</strong> like "I am determined to go to your university" or "I have been the best of my class." A crucial hint that guided me in writing the letter (and parts of my CV) was this: <strong>"Every time you say something, also answer the question: 'And so?'"</strong> This pushed me to elaborate on the impact or significance of each point.
+    </p>
 
-            <h3 id="motivational-letter" class="text-md md:text-lg font-semibold mt-6 mb-2">The Motivational Letter: Two Weeks of Crafting</h3>
-            <p class="text-sm md:text-base leading-relaxed mb-4">
-              I dedicated <strong>about two weeks to writing my motivational letter</strong>. I began with a personal anecdote, then discussed my past achievements. After that, I focused on what specifically drew me to these universities and what I hoped to gain from their programs. Finally, I outlined my future career goals.
-            </p>
-            <p class="text-sm md:text-base leading-relaxed mb-4">
-              As many people advised me, <strong>I consciously avoided clichés</strong> like "I am determined to go to your university" or "I have been the best of my class." A crucial hint that guided me in writing the letter (and parts of my CV) was this: <strong>"Every time you say something, also answer the question: 'And so?'"</strong> This pushed me to elaborate on the impact or significance of each point.
-            </p>
+    <h3 class="text-md md:text-lg font-semibold mt-6 mb-2">Reference Letters: Quality Over Fame</h3>
+    <p class="text-sm md:text-base leading-relaxed mb-4">
+      Regarding the reference letters, I want to share some insights into my choices. I only asked professors from whom I had taken courses, ensuring they had concrete experiences and observations to write about. Of course, I also considered the professor’s academic standing.
+    </p>
+    <p class="text-sm md:text-base leading-relaxed mb-4">
+      However, I firmly believe that <strong>between a famous professor who barely knows you and a less prominent professor with whom you've genuinely connected and shared something, the second option is hands-down better</strong>. A personal, insightful letter from someone who truly understands your capabilities and character is far more impactful.
+    </p>
 
-            <h3 id="reference-letters" class="text-md md:text-lg font-semibold mt-6 mb-2">Reference Letters: Quality Over Fame</h3>
-            <p class="text-sm md:text-base leading-relaxed mb-4">
-              Regarding the reference letters, I want to share some insights into my choices. I only asked professors from whom I had taken courses, ensuring they had concrete experiences and observations to write about. Of course, I also considered the professor’s academic standing.
-            </p>
-            <p class="text-sm md:text-base leading-relaxed mb-4">
-              However, I firmly believe that <strong>between a famous professor who barely knows you and a less prominent professor with whom you've genuinely connected and shared something, the second option is hands-down better</strong>. A personal, insightful letter from someone who truly understands your capabilities and character is far more impactful.
-            </p>
+    <p class="text-sm md:text-base leading-relaxed mt-6">
+      I think I've covered pretty much everything I can say about my admission journey. I'm incredibly thrilled to start this experience. Hopefully, my story has motivated you to embark on your own journey, or at the very least, helped clear up some of your doubts about admission to these universities.
+    </p>
+  </article>
 
-            <p class="text-sm md:text-base leading-relaxed mt-6">
-              I think I've covered pretty much everything I can say about my admission journey. I'm incredibly thrilled to start this experience. Hopefully, my story has motivated you to embark on your own journey, or at the very least, helped clear up some of your doubts about admission to these universities.
-            </p>
-        </article>
-    </main>
+  <aside class="bg-white p-4 md:p-6 rounded-xl shadow mt-8">
+      <h4 class="font-bold text-gray-700 mb-3 text-base">More from PepoBlog</h4>
+      <ul class="space-y-2 text-sm">
+          <li><a href="#" class="text-blue-600 hover:underline">My Journey into Web Development (Placeholder)</a></li>
+          <li><a href="#" class="text-blue-600 hover:underline">Tips for Balancing Study and Life (Placeholder)</a></li>
+          <li><a href="#" class="text-blue-600 hover:underline">Why I Chose Computer Engineering (Placeholder)</a></li>
+          <li><a href="#" class="text-blue-600 hover:underline">Future of Cybersecurity (Placeholder)</a></li>
+      </ul>
+  </aside>
 
-    <aside class="order-1 md:order-none md:block"> <div class="bg-white p-4 rounded-xl shadow sticky-top-offset md:sticky-top-offset mb-6">
-            <h4 class="font-bold text-gray-700 mb-3 text-base">Table of Contents</h4>
-            <ul class="space-y-2 text-sm">
-                <li><a href="#admission-intro" class="text-blue-600 hover:underline">My Admission to EPFL-ETHZ</a></li>
-                <li><a href="#academics" class="text-blue-600 hover:underline">Academics: Beyond Extraordinary Achievements</a></li>
-                <li><a href="#my-cv" class="text-blue-600 hover:underline">My CV: Solid, Not Standout</a></li>
-                <li><a href="#motivational-letter" class="text-blue-600 hover:underline">The Motivational Letter: Two Weeks of Crafting</a></li>
-                <li><a href="#reference-letters" class="text-blue-600 hover:underline">Reference Letters: Quality Over Fame</a></li>
-            </ul>
-        </div>
-
-        <div class="bg-white p-4 rounded-xl shadow sticky-top-offset md:sticky-top-offset">
-            <h4 class="font-bold text-gray-700 mb-3 text-base">More from PepoBlog</h4>
-            <ul class="space-y-2 text-sm">
-                <li><a href="#" class="text-blue-600 hover:underline">My Journey into Web Development (Placeholder)</a></li>
-                <li><a href="#" class="text-blue-600 hover:underline">Tips for Balancing Study and Life (Placeholder)</a></li>
-                <li><a href="#" class="text-blue-600 hover:underline">Why I Chose Computer Engineering (Placeholder)</a></li>
-                <li><a href="#" class="text-blue-600 hover:underline">Future of Cybersecurity (Placeholder)</a></li>
-            </ul>
-        </div>
-    </aside>
-
-</div> <footer class="mt-10 p-4 text-center text-sm text-gray-500 border-t">
+</main>
+<footer class="mt-10 p-4 text-center text-sm text-gray-500 border-t">
   <p>© 2025 PepoBlog. All rights reserved.</p>
 </footer>
 </body>
