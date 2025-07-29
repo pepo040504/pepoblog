@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Articles - PepoBlog</title>
+  <link rel="icon" href="site.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+<header class="bg-white shadow-lg border-b-4 border-blue-500 fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 py-4 md:py-8">
+    <div class="flex items-center justify-center mb-6">
+      <div class="flex-shrink-0 mr-2 md:mr-8">
+        <img src="assets/logo.png" alt="PepoBlog Logo" class="h-16 md:h-20" />
+      </div>
+      <div class="text-center md:text-left px-2">
+        <h1 class="text-2xl md:text-4xl font-bold bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent mb-2">PepoBlog</h1>
+        <p class="text-base md:text-xl text-gray-600">Personal stories, thoughts,<br>and inspiration</p>
+      </div>
+    </div>
+    <nav class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full px-4 md:px-8 py-4 flex justify-center space-x-3 md:space-x-8 shadow-lg">
+      <a href="index.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all md:text-lg">Home</a>
+      <a href="articles.html" class="text-white font-semibold bg-white/20 px-3 md:px-4 py-2 rounded-full text-base md:text-lg">Articles</a>
+      <a href="about.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all md:text-lg">About Me</a>
+      <a href="contact.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all md:text-lg">Write Me</a>
+    </nav>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-4 py-8 mt-48 md:mt-64">
+  
+  <!-- Page Header -->
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">All Articles</h2>
+    <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+      Explore all my thoughts, experiences, and insights about university life, cybersecurity, and personal growth.
+    </p>
+  </div>
+
+  <!-- Search/Filter Section (Optional) -->
+  <div class="mb-8">
+    <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+      <input 
+        type="text" 
+        placeholder="Search articles..." 
+        class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        id="searchInput"
+      >
+    </div>
+  </div>
+
+  <!-- Articles List -->
+  <div class="space-y-8">
+    
+    <!-- Article 1 -->
+    <article class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 group">
+      <div class="md:flex">
+        <div class="md:w-1/3">
+          <img src="assets/article1.jpg" alt="My Admission to EPFL-ETHZ" class="w-full h-48 md:h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="md:w-2/3 p-6 md:p-8">
+          <div class="flex items-center mb-3">
+            <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">University</span>
+            <span class="text-gray-500 text-sm ml-4">July 28, 2025</span>
+          </div>
+          <h3 class="text-xl md:text-2xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">
+            <a href="articles/article1.html">My Admission to EPFL-ETHZ</a>
+          </h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Some thoughts about my admission at the Cybersecurity's program and a complete picture about my profile. I share the entire application process, what worked, and what I learned along the way.
+          </p>
+          <a href="articles/article1.html" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors">
+            Read More
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article 2 -->
+    <article class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 group">
+      <div class="md:flex">
+        <div class="md:w-1/3">
+          <img src="assets/article2.jpg" alt="University Life" class="w-full h-48 md:h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="md:w-2/3 p-6 md:p-8">
+          <div class="flex items-center mb-3">
+            <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Study Tips</span>
+            <span class="text-gray-500 text-sm ml-4">July 20, 2025</span>
+          </div>
+          <h3 class="text-xl md:text-2xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">
+            <a href="articles/article2.html">University Life</a>
+          </h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            From choosing your path to graduation success: tips and tricks I discovered during my bachelor's degree. Real advice from someone who's been through the struggles.
+          </p>
+          <a href="articles/article2.html" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors">
+            Read More
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article 3 -->
+    <article class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 group">
+      <div class="md:flex">
+        <div class="md:w-1/3">
+          <img src="assets/article3.jpg" alt="Learning Cybersecurity" class="w-full h-48 md:h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="md:w-2/3 p-6 md:p-8">
+          <div class="flex items-center mb-3">
+            <span class="bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full">Cybersecurity</span>
+            <span class="text-gray-500 text-sm ml-4">July 15, 2025</span>
+          </div>
+          <h3 class="text-xl md:text-2xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">
+            <a href="articles/article3.html">Learning Cybersecurity</a>
+          </h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            My journey into cybersecurity: resources, challenges, and breakthrough moments that shaped my understanding. A roadmap for beginners wanting to enter this field.
+          </p>
+          <a href="articles/article3.html" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors">
+            Read More
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article 4 -->
+    <article class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 group">
+      <div class="md:flex">
+        <div class="md:w-1/3">
+          <img src="assets/article4.jpg" alt="Study Abroad Experience" class="w-full h-48 md:h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="md:w-2/3 p-6 md:p-8">
+          <div class="flex items-center mb-3">
+            <span class="bg-orange-100 text-orange-800 text-sm font-medium px-3 py-1 rounded-full">Personal Growth</span>
+            <span class="text-gray-500 text-sm ml-4">July 10, 2025</span>
+          </div>
+          <h3 class="text-xl md:text-2xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">
+            <a href="articles/article4.html">Study Abroad Experience</a>
+          </h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Reflections on studying in a different country: cultural adaptation, academic challenges, and personal growth. What I wish I knew before taking this leap.
+          </p>
+          <a href="articles/article4.html" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors">
+            Read More
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article 5 -->
+    <article class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 group">
+      <div class="md:flex">
+        <div class="md:w-1/3">
+          <img src="assets/article5.jpg" alt="Building My First Security Project" class="w-full h-48 md:h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="md:w-2/3 p-6 md:p-8">
+          <div class="flex items-center mb-3">
+            <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Projects</span>
+            <span class="text-gray-500 text-sm ml-4">July 5, 2025</span>
+          </div>
+          <h3 class="text-xl md:text-2xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">
+            <a href="articles/article5.html">Building My First Security Project</a>
+          </h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            The story behind my first cybersecurity project: from idea to implementation, the challenges I faced, and what I learned about secure coding practices.
+          </p>
+          <a href="articles/article5.html" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors">
+            Read More
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article 6 -->
+    <article class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 group">
+      <div class="md:flex">
+        <div class="md:w-1/3">
+          <img src="assets/article6.jpg" alt="Time Management in University" class="w-full h-48 md:h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="md:w-2/3 p-6 md:p-8">
+          <div class="flex items-center mb-3">
+            <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Productivity</span>
+            <span class="text-gray-500 text-sm ml-4">June 28, 2025</span>
+          </div>
+          <h3 class="text-xl md:text-2xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">
+            <a href="articles/article6.html">Time Management in University</a>
+          </h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            How I learned to balance studies, projects, and personal life without burning out. Practical strategies that actually work for busy students.
+          </p>
+          <a href="articles/article6.html" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors">
+            Read More
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- Load More Button (Optional) -->
+  <div class="text-center mt-12">
+    <button class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+      Load More Articles
+    </button>
+  </div>
+
+</main>
+
+<footer class="mt-12 md:mt-16 p-6 md:p-8 text-center text-sm md:text-base text-gray-600 border-t bg-white">
+  <p>© 2025 PepoBlog. All rights reserved.</p>
+</footer>
+
+<script>
+// Simple search functionality
+document.getElementById('searchInput').addEventListener('input', function(e) {
+  const searchTerm = e.target.value.toLowerCase();
+  const articles = document.querySelectorAll('article');
+  
+  articles.forEach(article => {
+    const title = article.querySelector('h3').textContent.toLowerCase();
+    const content = article.querySelector('p').textContent.toLowerCase();
+    
+    if (title.includes(searchTerm) || content.includes(searchTerm)) {
+      article.style.display = 'block';
+    } else {
+      article.style.display =
