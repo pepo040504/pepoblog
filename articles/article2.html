@@ -217,30 +217,22 @@
         <div class="slideshow-container shadow-lg">
           <div class="slide active">
             <img src="../assets/article2/graduation1.jpg" alt="Graduation ceremony moment">
-            <div class="slide-caption">
-              <p class="text-sm md:text-base font-medium">The moment I walked across the stage</p>
-            </div>
+            
           </div>
           
           <div class="slide">
             <img src="../assets/article2/graduation2.jpg" alt="With family after graduation">
-            <div class="slide-caption">
-              <p class="text-sm md:text-base font-medium">Celebrating with my family</p>
-            </div>
+            
           </div>
           
           <div class="slide">
             <img src="../assets/article2/graduation3.jpg" alt="With friends and classmates">
-            <div class="slide-caption">
-              <p class="text-sm md:text-base font-medium">With my amazing classmates</p>
-            </div>
+            
           </div>
           
           <div class="slide">
             <img src="../assets/article2/graduation4.jpg" alt="Holding diploma proudly">
-            <div class="slide-caption">
-              <p class="text-sm md:text-base font-medium">Finally holding my diploma!</p>
-            </div>
+            
           </div>
           
           <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
@@ -297,20 +289,6 @@ function currentSlide(index) {
   showSlide(index - 1);
 }
 
-// Auto-slide every 4 seconds
-let autoSlideInterval = setInterval(() => {
-  changeSlide(1);
-}, 4000);
-
-// Pause auto-slide when user interacts, resume after 8 seconds
-function pauseAutoSlide() {
-  clearInterval(autoSlideInterval);
-  setTimeout(() => {
-    autoSlideInterval = setInterval(() => {
-      changeSlide(1);
-    }, 4000);
-  }, 8000);
-}
 
 // Add event listeners to pause auto-slide on user interaction
 document.querySelector('.prev').addEventListener('click', pauseAutoSlide);
