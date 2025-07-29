@@ -237,7 +237,7 @@
           <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
           <button class="next" onclick="changeSlide(1)">&#10095;</button>
         </div>
-        
+        <br>
         <div class="dots-container">
           <span class="dot active" onclick="currentSlide(1)"></span>
           <span class="dot" onclick="currentSlide(2)"></span>
@@ -288,20 +288,6 @@ function currentSlide(index) {
   showSlide(index - 1);
 }
 
-// Auto-slide every 4 seconds
-let autoSlideInterval = setInterval(() => {
-  changeSlide(1);
-}, 4000);
-
-// Pause auto-slide when user interacts, resume after 8 seconds
-function pauseAutoSlide() {
-  clearInterval(autoSlideInterval);
-  setTimeout(() => {
-    autoSlideInterval = setInterval(() => {
-      changeSlide(1);
-    }, 4000);
-  }, 8000);
-}
 
 // Add event listeners to pause auto-slide on user interaction
 document.querySelector('.prev').addEventListener('click', pauseAutoSlide);
