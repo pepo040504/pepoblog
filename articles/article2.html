@@ -1,37 +1,300 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PepoBlog4</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Navigating University Life - PepoBlog</title>
+  <link rel="icon" href="../favicon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {{ font-family: 'Inter', sans-serif; }}
+    body { font-family: 'Inter', sans-serif; }
+    
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+      background: #f8fafc;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    .slide {
+      display: none;
+      position: relative;
+    }
+    
+    .slide.active {
+      display: block;
+    }
+    
+    .slide img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+    
+    .slide-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -22px;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      background: rgba(0,0,0,0.5);
+      border: none;
+      user-select: none;
+      transition: background 0.3s;
+    }
+    
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    
+    .prev {
+      left: 0;
+      border-radius: 0 3px 3px 0;
+    }
+    
+    .prev:hover, .next:hover {
+      background: rgba(0,0,0,0.8);
+    }
+    
+    .dots-container {
+      text-align: center;
+      padding: 20px;
+      background: #f8fafc;
+    }
+    
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+    
+    .dot.active, .dot:hover {
+      background-color: #3b82f6;
+    }
   </style>
 </head>
-<body class="bg-white text-gray-800">
+<body class="bg-gray-50 text-gray-900">
+<header class="bg-white shadow-lg border-b-4 border-blue-500 fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 py-4 md:py-8">
+    <div class="flex items-center justify-center mb-6">
+      <div class="flex-shrink-0 mr-2 md:mr-8">
+        <img src="../assets/logo.png" alt="PepoBlog Logo" class="h-16 md:h-20" />
+      </div>
+      <div class="text-center md:text-left px-2">
+        <h1 class="text-2xl md:text-4xl font-bold bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent mb-2">PepoBlog</h1>
+        <p class="text-base md:text-xl text-gray-600">Personal stories, thoughts,<br>and inspiration</p>
+      </div>
+    </div>
 
-<header class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-6 text-center shadow">
-  <img src="../assets/logo.png" alt="Logo" class="mx-auto h-16 mb-4" />
-  <h1 class="text-3xl font-bold">Placeholder Article 2</h1>
-  <nav class="mt-4 space-x-4">
-    <a href="../index.html" class="underline">Home</a>
-    <a href="../about.html" class="underline">About Me</a>
-    <a href="../contact.html" class="underline">Write Me</a>
-  </nav>
+    <nav class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full px-4 md:px-8 py-4 flex justify-center space-x-3 md:space-x-8 shadow-lg">
+      <a href="../index.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full md:text-lg">Home</a>
+      <a href="../about.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full md:text-lg">About Me</a>
+      <a href="../contact.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all md:text-lg">Write Me</a>
+    </nav>
+  </div>
 </header>
-<main class="max-w-2xl mx-auto px-4 py-10">
-  <article class="bg-white p-6 rounded-xl shadow">
-    <img src="https://picsum.photos/seed/article2full/800/400" alt="Article full image" class="mb-4 rounded-lg w-full object-cover" />
-    <h2 class="text-xl font-semibold mb-4">Placeholder Article 2</h2>
-    <p>This is the full content of article 2. Replace this with your actual blog content. It includes a full-size image at the top.</p>
+
+<main class="max-w-4xl mx-auto px-4 py-8 mt-48 md:mt-64">
+  <article class="bg-white p-6 md:p-8 lg:p-10 rounded-xl shadow-lg">
+    <img src="../assets/article2.jpg" alt="University campus and graduation celebration" class="w-full h-48 md:h-64 object-cover rounded-lg mb-6 md:mb-8" />
+    
+    <header class="mb-6 md:mb-8">
+      <h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-gray-900 leading-tight">Navigating University Life: From Choosing Your Path to Graduation Success</h2>
+      <p class="text-base md:text-lg text-gray-600 mb-4">Published on: <span class="font-medium text-gray-700">July 20, 2025</span></p>
+    </header>
+
+    <div class="prose prose-lg md:prose-xl max-w-none">
+      <h3 class="text-lg md:text-xl font-semibold mt-8 md:mt-10 mb-4 md:mb-6 text-gray-900">Introduction</h3>
+      <p class="text-lg md:text-xl leading-relaxed mb-6 md:mb-8 text-gray-700 font-medium">
+        University can be one of the most transformative periods in your life—academically, professionally, and personally. In this post, I want to share what I learned from my own journey, from choosing a degree to walking across the graduation stage. I hope my experience can help you make the most of your own path.
+      </p>
+
+      <h3 class="text-lg md:text-xl font-semibold mt-8 md:mt-10 mb-4 md:mb-6 text-gray-900">Choosing the Right Program</h3>
+      <p class="text-base md:text-lg leading-relaxed mb-4 md:mb-6 text-gray-700">
+        The first step is to choose what you want to study. This means you have to find the right program at the right university that matches your career goals and your passions. During this phase, it's really important to find the right balance between what you truly like and what the job market has to offer.
+      </p>
+      <p class="text-base md:text-lg leading-relaxed mb-4 md:mb-6 text-gray-700">
+        If you're unsure and stuck between options—<strong class="text-gray-900">welcome to the club! I had to choose between five different programs.</strong> What helped me was creating a list of key factors I cared about, like:
+      </p>
+      <ul class="list-disc pl-6 mb-6 md:mb-8 text-gray-700 space-y-2">
+        <li class="text-base md:text-lg">Employability</li>
+        <li class="text-base md:text-lg">Happiness</li>
+        <li class="text-base md:text-lg">Personal interest</li>
+        <li class="text-base md:text-lg">Location</li>
+        <li class="text-base md:text-lg">Cost</li>
+      </ul>
+      <p class="text-base md:text-lg leading-relaxed mb-6 md:mb-8 text-gray-700">
+        Then, I rated each program from 1 to 10 based on these criteria. That gave me a clear picture of the strengths and weaknesses of each option, and made the decision more logical (and less overwhelming).
+      </p>
+
+      <h3 class="text-lg md:text-xl font-semibold mt-8 md:mt-10 mb-4 md:mb-6 text-gray-900">Living the University Life</h3>
+      <p class="text-base md:text-lg leading-relaxed mb-4 md:mb-6 text-gray-700">
+        Now, here it is—<strong class="text-gray-900">the big deal: university life</strong>. This is the period of your life where you have total control over what you do. You can choose to stay home and study hard for top grades, or go out every night and study in between social events—it all depends on you.
+      </p>
+      <p class="text-base md:text-lg leading-relaxed mb-6 md:mb-8 text-gray-700">
+        Personally, even though I succeeded academically, I strongly recommend <strong class="text-gray-900">not letting grades control your mood</strong>. It feels great to get high marks, of course, but getting a lower one is completely normal. Sometimes it's just the professor's teaching style or your own interest in the subject—and that's okay.
+      </p>
+
+      <h3 class="text-lg md:text-xl font-semibold mt-8 md:mt-10 mb-4 md:mb-6 text-gray-900">Time Management and Building Relationships</h3>
+      <p class="text-base md:text-lg leading-relaxed mb-4 md:mb-6 text-gray-700">
+        One of the most valuable skills I developed was <strong class="text-gray-900">time management</strong>. Creating a weekly schedule that included not just study time, but also social activities, exercise, and rest helped me stay balanced and motivated.
+      </p>
+      <p class="text-base md:text-lg leading-relaxed mb-6 md:mb-8 text-gray-700">
+        Equally important was building relationships. Don't underestimate the power of getting to know your professors and classmates. Participating in class, attending office hours, and forming study groups made my learning more effective—and opened doors I never expected. <strong class="text-gray-900">Some of my strongest recommendation letters came from professors who knew me beyond just my exam scores.</strong>
+      </p>
+
+      <h3 class="text-lg md:text-xl font-semibold mt-8 md:mt-10 mb-4 md:mb-6 text-gray-900">My Personal Approach to University</h3>
+      <p class="text-base md:text-lg leading-relaxed mb-4 md:mb-6 text-gray-700">
+        Based on my experience, I highly recommend <strong class="text-gray-900">consistently attending lectures—and staying engaged</strong>. It may sound obvious, but truly paying attention in class makes a huge difference.
+      </p>
+      <p class="text-base md:text-lg leading-relaxed mb-4 md:mb-6 text-gray-700">
+        And here's something many students overlook: <strong class="text-gray-900">don't be afraid to ask questions</strong>. On the contrary, ask as many as you need. Let your professors get to know you—they're there for you, not against you. Being visible and engaged enhances both your learning and your academic opportunities.
+      </p>
+      <p class="text-base md:text-lg leading-relaxed mb-4 md:mb-6 text-gray-700">
+        It's also completely normal to struggle sometimes. What matters most is not isolating yourself. Talk to others, share your doubts, and stay open to meeting new people. Whether it's classmates, professors, or recruiters, growing your network is always a plus.
+      </p>
+      <p class="text-base md:text-lg leading-relaxed mb-4 md:mb-6 text-gray-700">
+        As for studying, there's no one-size-fits-all method. Everyone needs to discover their own. <strong class="text-gray-900">Mine was simple but effective:</strong>
+      </p>
+      <ul class="list-disc pl-6 mb-6 md:mb-8 text-gray-700 space-y-2">
+        <li class="text-base md:text-lg">I focused intently during lectures.</li>
+        <li class="text-base md:text-lg">I took just a few, very targeted notes.</li>
+        <li class="text-base md:text-lg">As soon as I got home, I reviewed them quickly.</li>
+        <li class="text-base md:text-lg">Before each exam, I created a single file that summarized everything I knew about the subject.</li>
+      </ul>
+      <p class="text-base md:text-lg leading-relaxed mb-6 md:mb-8 text-gray-700">
+        That file became my main study resource. It contained everything I needed, so I never had to waste time jumping between textbooks, lecture slides, or scattered notes. It kept things clear and efficient, and gave me confidence when exam time came.
+      </p>
+
+      <h3 class="text-lg md:text-xl font-semibold mt-8 md:mt-10 mb-4 md:mb-6 text-gray-900">Final Thoughts</h3>
+      <p class="text-base md:text-lg leading-relaxed mb-4 md:mb-6 text-gray-700">
+        Finally, I achieved my goal—and <strong class="text-gray-900">I can now proudly say I graduated yesterday with the highest marks and honors!</strong>
+      </p>
+      <p class="text-base md:text-lg leading-relaxed mb-4 md:mb-6 text-gray-700">
+        Looking back, university taught me so much more than just technical knowledge. I learned how to manage my time, how to be resilient, and how to balance ambition with well-being.
+      </p>
+      <p class="text-base md:text-lg leading-relaxed mb-6 md:mb-8 text-gray-700">
+        As I now prepare to start my master's journey at EPFL and ETH Zurich, I feel deeply grateful for every step—both the triumphs and the struggles.
+      </p>
+      <p class="text-base md:text-lg leading-relaxed mt-8 md:mt-10 text-gray-700 border-l-4 border-blue-500 pl-4 md:pl-6 bg-blue-50 py-4 md:py-6 rounded-r-lg">
+        If you're starting or currently navigating your university journey, I hope this post helped you in some way. Just remember: <strong class="text-gray-900">there's no single "right" way to do university. Trust yourself, stay curious, and embrace the ride.</strong>
+      </p>
+
+      <!-- Graduation Photos Slideshow -->
+      <div class="mt-12 md:mt-16">
+        <h3 class="text-lg md:text-xl font-semibold mb-6 text-gray-900 text-center">Graduation Day Memories</h3>
+        <div class="slideshow-container shadow-lg">
+          <div class="slide active">
+            <img src="../assets/graduation1.jpg" alt="Graduation ceremony moment">
+            <div class="slide-caption">
+              <p class="text-sm md:text-base font-medium">The moment I walked across the stage</p>
+            </div>
+          </div>
+          
+          <div class="slide">
+            <img src="../assets/graduation2.jpg" alt="With family after graduation">
+            <div class="slide-caption">
+              <p class="text-sm md:text-base font-medium">Celebrating with my family</p>
+            </div>
+          </div>
+          
+          <div class="slide">
+            <img src="../assets/graduation3.jpg" alt="With friends and classmates">
+            <div class="slide-caption">
+              <p class="text-sm md:text-base font-medium">With my amazing classmates</p>
+            </div>
+          </div>
+          
+          <div class="slide">
+            <img src="../assets/graduation4.jpg" alt="Holding diploma proudly">
+            <div class="slide-caption">
+              <p class="text-sm md:text-base font-medium">Finally holding my diploma!</p>
+            </div>
+          </div>
+          
+          <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+          <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+        
+        <div class="dots-container">
+          <span class="dot active" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+      </div>
+    </div>
   </article>
+
+  <aside class="bg-white p-6 md:p-8 rounded-xl shadow-lg mt-8">
+    <h4 class="font-bold text-gray-900 mb-4 md:mb-6 text-lg md:text-xl">More from PepoBlog</h4>
+    <ul class="space-y-3 md:space-y-4">
+      <li><a href="../articles/epfl-admission.html" class="text-blue-600 hover:text-blue-800 hover:underline text-base md:text-lg font-medium transition-colors">My Admission to EPFL-ETHZ</a></li>
+      <li><a href="#" class="text-blue-600 hover:text-blue-800 hover:underline text-base md:text-lg font-medium transition-colors">My Journey into Web Development (Coming Soon)</a></li>
+      <li><a href="#" class="text-blue-600 hover:text-blue-800 hover:underline text-base md:text-lg font-medium transition-colors">Tips for Balancing Study and Life (Coming Soon)</a></li>
+      <li><a href="#" class="text-blue-600 hover:text-blue-800 hover:underline text-base md:text-lg font-medium transition-colors">Why I Chose Computer Engineering (Coming Soon)</a></li>
+    </ul>
+  </aside>
 </main>
 
-  <footer class="mt-10 p-4 text-center text-sm text-gray-500 border-t">
-    © 2025 PepoBlog4. All rights reserved.
-  </footer>
+<footer class="mt-12 md:mt-16 p-6 md:p-8 text-center text-sm md:text-base text-gray-600 border-t bg-white">
+  <p>© 2025 PepoBlog. All rights reserved.</p>
+</footer>
+
+<script>
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+
+function showSlide(index) {
+  slides.forEach(slide => slide.classList.remove('active'));
+  dots.forEach(dot => dot.classList.remove('active'));
+  
+  slideIndex = index;
+  if (slideIndex >= slides.length) slideIndex = 0;
+  if (slideIndex < 0) slideIndex = slides.length - 1;
+  
+  slides[slideIndex].classList.add('active');
+  dots[slideIndex].classList.add('active');
+}
+
+function changeSlide(direction) {
+  showSlide(slideIndex + direction);
+}
+
+function currentSlide(index) {
+  showSlide(index - 1);
+}
+
+// Auto-slide every 5 seconds
+setInterval(() => {
+  changeSlide(1);
+}, 5000);
+</script>
+
 </body>
 </html>
