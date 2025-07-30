@@ -20,11 +20,11 @@
     }
     
     /* Effetto hover per le carte */
-    .contact-item {
+    .contact-card-v2 {
       transition: all 0.3s ease;
     }
     
-    .contact-item:hover {
+    .contact-card-v2:hover {
       transform: translateY(-4px);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
@@ -52,14 +52,38 @@
       100% { background-position: 0% 50%; }
     }
     
-    /* Icone animate */
-    .contact-icon-wrapper {
-      transition: all 0.3s ease;
+    /* Styling for the list items within the new cards */
+    .contact-list-item {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem; /* Equivalent to Tailwind's gap-6 */
+        padding: 1.25rem 0; /* Equivalent to Tailwind's py-5 */
+        border-bottom: 1px solid theme('colors.gray.200');
     }
-    
-    .contact-item:hover .contact-icon-wrapper {
-      transform: scale(1.1) rotate(5deg);
+
+    .contact-list-item:last-child {
+        border-bottom: none;
     }
+
+    .contact-icon-new {
+        flex-shrink: 0;
+        width: 2.5rem; /* w-10 */
+        height: 2.5rem; /* h-10 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem; /* text-2xl */
+        border-radius: 0.5rem; /* rounded-lg */
+    }
+
+    /* Specific icon colors */
+    .icon-linkedin { background-color: #0A66C2; }
+    .icon-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+    .icon-github { background-color: #333; }
+    .icon-phone { background-color: #10B981; } /* Emerald-500 */
+    .icon-email { background-color: #3B82F6; } /* Blue-500 */
+    .icon-university { background-color: #9333ea; } /* Purple-600 */
+
   </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -112,75 +136,90 @@
   </section>
 
   <section class="mb-16 md:mb-20">
-    <h3 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">Reach Out to Me</h3>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      
-      <a href="https://linkedin.com/in/your-username" target="_blank" class="contact-item bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl flex flex-col items-center text-center">
-        <div class="contact-icon-wrapper w-16 h-16 bg-gradient-to-r from-blue-700 to-blue-900 rounded-xl flex items-center justify-center text-white text-3xl mb-4">
-          💼
-        </div>
-        <h4 class="text-xl font-bold text-gray-900 mb-2">LinkedIn</h4>
-        <p class="text-blue-600 hover:text-blue-800 text-lg font-medium hover:underline transition-colors break-words">
-          linkedin.com/in/your-username
-        </p>
-        <p class="text-gray-500 text-sm mt-1">Connect for professional networking</p>
-      </a>
+    <h3 class="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-900">My Profiles</h3>
+    <div class="bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100 contact-card-v2">
+      <ul class="divide-y divide-gray-200">
+        <li class="contact-list-item">
+          <div class="contact-icon-new icon-linkedin text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-1">LinkedIn</h4>
+            <a href="https://linkedin.com/in/your-username" target="_blank" class="text-blue-600 hover:text-blue-800 text-base hover:underline break-words">
+              linkedin.com/in/your-username
+            </a>
+            <p class="text-gray-500 text-sm mt-1">Connect for professional networking</p>
+          </div>
+        </li>
+        <li class="contact-list-item">
+          <div class="contact-icon-new icon-instagram text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.204-.012 3.584-.07 4.85-0.148 3.252-1.691 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069s-3.583-.012-4.85-.07c-3.251-0.148-4.77-1.691-4.919-4.919-0.058-1.265-0.069-1.645-0.069-4.849 0-3.204.012-3.584.07-4.85 0.149-3.252 1.691-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-0.059 1.281-0.073 1.689-0.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98 0.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-1">Instagram</h4>
+            <a href="https://instagram.com/your_username" target="_blank" class="text-blue-600 hover:text-blue-800 text-base hover:underline break-words">
+              @your_username
+            </a>
+            <p class="text-gray-500 text-sm mt-1">Personal life & hobbies</p>
+          </div>
+        </li>
+        <li class="contact-list-item">
+          <div class="contact-icon-new icon-github text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.08-.731.084-.716.084-.716 1.192.085 1.815 1.22 1.815 1.22 1.06 1.816 2.784 1.299 3.479.993.108-.775.418-1.299.762-1.594-2.665-.3-5.466-1.332-5.466-5.93 0-1.312.465-2.387 1.223-3.221-.124-.3-.532-1.529.117-3.176 0 0 1-.322 3.293 1.218.959-.266 1.96-.399 2.965-.399 1.005 0 2.007.133 2.967.399 2.291-1.545 3.287-1.218 3.287-1.218.654 1.647.248 2.876.121 3.176.76.834 1.222 1.909 1.222 3.221 0 4.609-2.807 5.624-5.479 5.921.429.369.816 1.096.816 2.209v3.293c0 .319.192.694.801.576 4.765-1.59 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-1">GitHub</h4>
+            <a href="https://github.com/your-username" target="_blank" class="text-blue-600 hover:text-blue-800 text-base hover:underline break-words">
+              github.com/your-username
+            </a>
+            <p class="text-gray-500 text-sm mt-1">Check out my latest work</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-      <a href="https://instagram.com/your_username" target="_blank" class="contact-item bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl flex flex-col items-center text-center">
-        <div class="contact-icon-wrapper w-16 h-16 bg-gradient-to-r from-pink-500 to-rose-600 rounded-xl flex items-center justify-center text-white text-3xl mb-4">
-          📸
-        </div>
-        <h4 class="text-xl font-bold text-gray-900 mb-2">Instagram</h4>
-        <p class="text-blue-600 hover:text-blue-800 text-lg font-medium hover:underline transition-colors break-words">
-          @your_username
-        </p>
-        <p class="text-gray-500 text-sm mt-1">Personal life & hobbies</p>
-      </a>
-
-      <a href="https://github.com/your-username" target="_blank" class="contact-item bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl flex flex-col items-center text-center">
-        <div class="contact-icon-wrapper w-16 h-16 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center text-white text-3xl mb-4">
-          💻
-        </div>
-        <h4 class="text-xl font-bold text-gray-900 mb-2">GitHub</h4>
-        <p class="text-blue-600 hover:text-blue-800 text-lg font-medium hover:underline transition-colors break-words">
-          github.com/your-username
-        </p>
-        <p class="text-gray-500 text-sm mt-1">Check out my latest work</p>
-      </a>
-
-      <a href="tel:+393334445556" class="contact-item bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl flex flex-col items-center text-center">
-        <div class="contact-icon-wrapper w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-white text-3xl mb-4">
-          📞
-        </div>
-        <h4 class="text-xl font-bold text-gray-900 mb-2">Phone</h4>
-        <p class="text-blue-600 hover:text-blue-800 text-lg font-medium hover:underline transition-colors break-words">
-          +39 333 444 5556
-        </p>
-        <p class="text-gray-500 text-sm mt-1">Mon-Fri, 9 AM - 6 PM CET (For urgent matters)</p>
-      </a>
-
-      <a href="mailto:giuseppe.allocca04@gmail.com" class="contact-item bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl flex flex-col items-center text-center">
-        <div class="contact-icon-wrapper w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white text-3xl mb-4">
-          📧
-        </div>
-        <h4 class="text-xl font-bold text-gray-900 mb-2">Personal Email</h4>
-        <p class="text-blue-600 hover:text-blue-800 text-lg font-medium hover:underline transition-colors break-words">
-          giuseppe.allocca04@gmail.com
-        </p>
-        <p class="text-gray-500 text-sm mt-1">Response within 24 hours (General inquiries)</p>
-      </a>
-
-      <a href="mailto:your.university@email.edu" class="contact-item bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl flex flex-col items-center text-center">
-        <div class="contact-icon-wrapper w-16 h-16 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center text-white text-3xl mb-4">
-          🎓
-        </div>
-        <h4 class="text-xl font-bold text-gray-900 mb-2">University Email</h4>
-        <p class="text-blue-600 hover:text-blue-800 text-lg font-medium hover:underline transition-colors break-words">
-          your.university@email.edu
-        </p>
-        <p class="text-gray-500 text-sm mt-1">For academic matters & collaborations</p>
-      </a>
-
+  <section class="mb-16 md:mb-20">
+    <h3 class="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-900">Direct Contacts</h3>
+    <div class="bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100 contact-card-v2">
+      <ul class="divide-y divide-gray-200">
+        <li class="contact-list-item">
+          <div class="contact-icon-new icon-phone text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 22.062l-3.525-2.071c-.812-.478-1.848-.387-2.585.228l-2.049 1.708c-6.108-2.618-10.456-6.966-13.074-13.074l1.708-2.049c.616-.737.707-1.773.228-2.585l-2.071-3.525c-.473-.807-1.393-1.144-2.222-.843-.637.23-1.164.887-1.282 1.638-.853 5.432 2.607 12.028 8.04 17.461 5.433 5.433 12.029 8.893 17.461 8.04 1.054-.165 1.85-.929 1.956-1.921.139-.817-.229-1.666-.998-2.126z"/></svg>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-1">Phone</h4>
+            <span class="text-gray-800 text-base font-medium break-words">
+              +39 333 444 5556
+            </span>
+            <p class="text-gray-500 text-sm mt-1">Mon-Fri, 9 AM - 6 PM CET (For urgent matters)</p>
+          </div>
+        </li>
+        <li class="contact-list-item">
+          <div class="contact-icon-new icon-email text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 0l-9.518 7.391-9.518-7.391h19.036zm-19.518 15.424v-12.784l10 7.788 10-7.788v12.784h-20z"/></svg>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-1">Personal Email</h4>
+            <span class="text-gray-800 text-base font-medium break-words">
+              giuseppe.allocca04@gmail.com
+            </span>
+            <p class="text-gray-500 text-sm mt-1">Response within 24 hours (General inquiries)</p>
+          </div>
+        </li>
+        <li class="contact-list-item">
+          <div class="contact-icon-new icon-university text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l-12 6v12l12 6 12-6v-12l-12-6zm0 2.311l9.077 4.689-9.077 4.689-9.077-4.689 9.077-4.689zm-10 7.234l10 5.176v6.279l-10-5.184v-6.271zm20 0l-10 5.176v6.279l10-5.184v-6.271z"/></svg>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-1">University Email</h4>
+            <span class="text-gray-800 text-base font-medium break-words">
+              your.university@email.edu
+            </span>
+            <p class="text-gray-500 text-sm mt-1">For academic matters & collaborations</p>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 
