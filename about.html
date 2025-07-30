@@ -37,12 +37,12 @@
     /* Stili dello Slideshow unificati */
     .slideshow-container {
       position: relative;
-      max-width: 400px; /* Dimensioni adeguate per un CV */
+      max-width: 500px; /* Aumentato per una migliore leggibilità */
       margin: auto;
       background: #f8fafc; /* Sfondo chiaro per lo slideshow */
       border-radius: 12px;
       overflow: hidden;
-      aspect-ratio: 9/16; /* Adatto per pagine di CV verticali */
+      aspect-ratio: 3/4; /* Rapporto d'aspetto per un foglio verticale (es. A4) */
       box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Ombra leggera */
     }
     
@@ -66,7 +66,7 @@
     
     @media (max-width: 768px) {
       .slideshow-container {
-        max-width: 300px;
+        max-width: 350px; /* Leggermente più grande per mobile */
       }
     }
     
@@ -308,20 +308,23 @@
     <div class="bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-gray-100">
       <div class="slideshow-container">
         <div class="slide active">
-          <img src="assets/CV/cv1.jpg" alt="CV Page 1 - Personal Information & Education" class="cursor-pointer" onclick="openImageModal(this)">
+          <img src="assets/CV/cv1.jpg" alt="CV Page 1 - Personal Information & Education">
         </div>
         
         <div class="slide">
-          <img src="assets/CV/cv2.jpg" alt="CV Page 2 - Certifications & Skills" class="cursor-pointer" onclick="openImageModal(this)">
+          <img src="assets/CV/cv2.jpg" alt="CV Page 2 - Certifications & Skills">
         </div>
         
         <div class="slide">
-          <img src="assets/CV/cv3.jpg" alt="CV Page 3 - Projects & Experience" class="cursor-pointer" onclick="openImageModal(this)">
+          <img src="assets/CV/cv3.jpg" alt="CV Page 3 - Projects & Experience">
         </div>
         
         <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
         <button class="next" onclick="changeSlide(1)">&#10095;</button>
       </div>
+
+      <div class="mb-4"></div> 
+
       <div class="dots-container">
         <span class="dot active" onclick="currentCVSlide(1)"></span>
         <span class="dot" onclick="currentCVSlide(2)"></span>
@@ -338,19 +341,12 @@
       </div>
 
       <div class="text-center mt-4">
-        <p class="text-gray-500 text-sm">💡 Click on the CV images to view them in full size</p>
+        <p class="text-gray-500 text-sm">Feel free to download my full CV for more details.</p>
       </div>
     </div>
   </section>
 
 </main>
-
-<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 hidden z-50 flex items-center justify-center p-4" onclick="closeImageModal()">
-  <div class="relative max-w-full max-h-full">
-    <img id="modalImage" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
-    <button onclick="closeImageModal()" class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition-colors">&times;</button>
-  </div>
-</div>
 
 <footer class="mt-12 md:mt-16 p-6 md:p-8 text-center text-sm md:text-base text-gray-600 border-t bg-white">
   <p>© 2025 PepoBlog. All rights reserved.</p>
@@ -381,27 +377,8 @@ function currentCVSlide(index) {
   showCVSlide(index - 1);
 }
 
-function openImageModal(img) {
-  const modal = document.getElementById('imageModal');
-  const modalImg = document.getElementById('modalImage');
-  modal.classList.remove('hidden');
-  modalImg.src = img.src;
-  modalImg.alt = img.alt;
-  document.body.style.overflow = 'hidden';
-}
-
-function closeImageModal() {
-  const modal = document.getElementById('imageModal');
-  modal.classList.add('hidden');
-  document.body.style.overflow = 'auto';
-}
-
-// Close modal with ESC key
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'Escape') {
-    closeImageModal();
-  }
-});
+// Funzioni per il modal rimosse, quindi non più necessarie.
+// openImageModal() e closeImageModal() sono state rimosse.
 
 // Inizializza lo slideshow al caricamento della pagina
 document.addEventListener('DOMContentLoaded', () => {
