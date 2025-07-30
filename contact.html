@@ -12,7 +12,7 @@
         body { font-family: 'Inter', sans-serif; }
 
         /* Stili personalizzati per gli elementi di contatto/profilo */
-        /* Questi stili sono stati unificati per email, profili e telefono */
+        /* Replicando lo stile di .contact-info-item e .contact-icon-wrapper dal tuo About Me */
         .contact-entry-item {
             display: flex;
             align-items: center;
@@ -40,12 +40,12 @@
             font-size: 2.25rem; /* Dimensione dell'icona Font Awesome */
         }
 
-        /* Colori specifici per le icone, riutilizzando i colori di Tailwind dove possibile o aggiungendo classi */
-        .icon-email { background: linear-gradient(45deg, #3B82F6, #6366F1); } /* Blu/Indaco */
+        /* Colori specifici per le icone, usando i gradienti e colori simili a quelli del tuo About Me */
+        .icon-email { background: linear-gradient(45deg, #FF9800, #F44336); /* Arancione/Rosso */ }
         .icon-linkedin { background: linear-gradient(45deg, #0077B5, #00A0DC); } /* Blu LinkedIn */
         .icon-instagram { background: linear-gradient(45deg, #E1306C, #FD1D1D); } /* Rosa/Rosso Instagram */
         .icon-github { background: linear-gradient(45deg, #1A1A1A, #333333); } /* Grigio scuro GitHub */
-        .icon-phone { background: linear-gradient(45deg, #8B5CF6, #C084FC); } /* Viola per il telefono (esempio) */
+        .icon-phone { background: linear-gradient(45deg, #673AB7, #9C27B0); } /* Viola scuro/chiaro per il telefono */
 
         /* Stili per il pulsante Send Message per mantenere lo stile esistente di Tailwind */
         .send-message-button {
@@ -55,14 +55,14 @@
             padding-bottom: 0.75rem;
             padding-left: 2rem;
             padding-right: 2rem;
-            border: none; /* Rimuovi border border-transparent */
+            border: none;
             border-radius: 9999px; /* rounded-full */
             font-size: 1rem;
             font-weight: 500;
             color: white;
             background-color: #3b82f6; /* bg-blue-600 */
             box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
-            transition: all 0.2s ease-in-out; /* transition-all transform */
+            transition: all 0.2s ease-in-out;
         }
         .send-message-button:hover {
             background-color: #2563eb; /* hover:bg-blue-700 */
@@ -70,17 +70,16 @@
         }
         .send-message-button:focus {
             outline: none;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5), 0 0 0 6px rgba(59, 130, 246, 0.1); /* focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 */
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5), 0 0 0 6px rgba(59, 130, 246, 0.1);
         }
 
-        /* Padding verticale del main ridotto */
+        /* Padding verticale del main ridotto per allinearsi all'About Me */
         main {
-            margin-top: 10rem; /* Regola questo valore per ridurre lo spazio tra header e contenuto */
-            /* Puoi provare anche mt-32 o mt-40 a seconda di quanto vuoi ridurre */
+            margin-top: 10rem; /* Regola questo in base all'altezza del tuo header */
             padding-top: 2rem; /* Aggiungi un piccolo padding in cima al main */
         }
 
-        /* Stili per i titoli delle sezioni */
+        /* Stili per i titoli delle sezioni per replicare l'About Me */
         .section-title {
             @apply text-2xl md:text-3xl font-bold mb-6 text-gray-900;
         }
@@ -103,7 +102,7 @@
             <a href="index.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full md:text-lg">Home</a>
             <a href="articles.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all md:text-lg">Articles</a>
             <a href="about.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full md:text-lg">About Me</a>
-            <a href="contact.html" class="text-white font-semibold bg-white/20 px-3 md:px-4 py-2 rounded-full text-base md:text-lg">Contacts</a>
+            <a href="contact.html" class="text-white font-semibold bg-white/20 px-3 md:px-4 py-2 rounded-full text-base md:text-lg">Write Me</a>
         </nav>
     </div>
 </header>
@@ -125,11 +124,11 @@
                 <form action="#" method="POST" class="space-y-6">
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
-                        <input type="text" name="name" id="name" autocomplete="name" class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-base placeholder-gray-400" placeholder="John Doe" required>
+                        <input type="text" id="name" name="name" autocomplete="name" class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-base placeholder-gray-400" placeholder="John Doe" required>
                     </div>
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Your Email</label>
-                        <input type="email" name="email" id="email" autocomplete="email" class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-base placeholder-gray-400" placeholder="you@example.com" required>
+                        <input type="email" id="email" name="email" autocomplete="email" class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-base placeholder-gray-400" placeholder="you@example.com" required>
                     </div>
                     <div>
                         <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Your Message</label>
@@ -192,7 +191,8 @@
                         </a>
                         <a href="tel:+391234567890" class="contact-entry-item group">
                             <div class="contact-icon-wrapper icon-phone">
-                                <i class="fas fa-phone-alt"></i> </div>
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
                             <div>
                                 <p class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">+39 123 4567890</p>
                                 <p class="text-gray-600 text-sm">Call or message me</p>
@@ -203,6 +203,7 @@
             </div>
         </div>
     </section>
+
 </main>
 
 <footer class="mt-12 md:mt-16 p-6 md:p-8 text-center text-sm md:text-base text-gray-600 border-t bg-white">
