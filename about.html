@@ -9,6 +9,40 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { font-family: 'Inter', sans-serif; }
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #3B82F6, #6366F1);
+    }
+    .timeline-item:last-child:before {
+      background: linear-gradient(to bottom, #3B82F6, transparent);
+      bottom: 50%;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: 12px;
+      top: 24px;
+      width: 18px;
+      height: 18px;
+      background: linear-gradient(45deg, #3B82F6, #6366F1);
+      border: 3px solid white;
+      border-radius: 50%;
+      box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
+    }
+    .cv-container {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .slide {
+      display: none;
+      transition: all 0.3s ease;
+    }
+    .slide.active {
+      display: block;
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -26,6 +60,7 @@
     
     <nav class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full px-4 md:px-8 py-4 flex justify-center space-x-3 md:space-x-8 shadow-lg">
       <a href="index.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full md:text-lg">Home</a>
+      <a href="articles.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all md:text-lg">Articles</a>
       <a href="about.html" class="text-white font-semibold bg-white/20 px-3 md:px-4 py-2 rounded-full text-base md:text-lg">About Me</a>
       <a href="contact.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all md:text-lg">Write Me</a>
     </nav>
@@ -33,33 +68,282 @@
 </header>
 
 <main class="max-w-4xl mx-auto px-4 py-8 mt-48 md:mt-64">
-  <div class="bg-white p-6 md:p-8 lg:p-10 rounded-xl shadow-lg">
-    <header class="mb-6 md:mb-8">
-      <h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-gray-900 leading-tight">Hi, I'm Pepo</h2>
-    </header>
-
-    <div class="prose prose-lg md:prose-xl max-w-none">
-      <p class="text-base md:text-lg leading-relaxed mb-6 md:mb-8 text-gray-700">
-        Welcome to my corner of the internet! I'm passionate about sharing personal stories, thoughts, and experiences that might inspire or help others on their own journeys.
-      </p>
-      
-      <p class="text-base md:text-lg leading-relaxed mb-6 md:mb-8 text-gray-700">
-        Currently pursuing a joint degree in Cybersecurity from EPFL and ETH Zurich, I love exploring the intersection of technology, education, and personal growth. Through this blog, I aim to document my experiences and share insights that could be valuable to fellow students and professionals.
-      </p>
-
-      <p class="text-base md:text-lg leading-relaxed mb-6 md:mb-8 text-gray-700">
-        When I'm not studying or writing, you might find me working on various projects, learning new skills, or simply reflecting on the journey that brought me here. I believe that every experience, whether challenging or rewarding, has something valuable to teach us.
-      </p>
-
-      <p class="text-base md:text-lg leading-relaxed text-gray-700 border-l-4 border-blue-500 pl-4 md:pl-6 bg-blue-50 py-4 md:py-6 rounded-r-lg">
-        Thank you for taking the time to visit my blog. I hope you find something here that resonates with you, and I'd love to hear your thoughts and stories as well.
-      </p>
+  
+  <!-- Hero Section -->
+  <section class="mb-16 md:mb-20">
+    <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
+      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <div class="flex-shrink-0">
+          <div class="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-2xl ring-4 ring-blue-100">
+            <img src="assets/profile.jpg" alt="Pepo Profile Photo" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div class="flex-1 text-center md:text-left">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            Hi, I'm Pepo
+          </h2>
+          <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
+            From a curious student exploring different paths to a cybersecurity enthusiast starting my journey at two of Europe's most prestigious tech universities. My story combines academic excellence with diverse passions - from calisthenics and DJing to investment strategies and continuous learning.
+          </p>
+          <p class="text-base md:text-lg text-gray-600">
+            Currently beginning the joint EPFL-ETHZ Cybersecurity Master's program, ready to dive deep into the fascinating world of digital security while sharing every step of this adventure with you.
+          </p>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- My Journey Timeline -->
+  <section class="mb-16 md:mb-20">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">My Journey</h2>
+    <div class="relative">
+      
+      <!-- Timeline Item 1 -->
+      <div class="timeline-item relative pl-16 pb-12">
+        <div class="timeline-dot"></div>
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full">2019</span>
+            <h3 class="text-xl md:text-2xl font-bold text-gray-900">The Spark</h3>
+          </div>
+          <p class="text-gray-700 leading-relaxed">
+            My fascination with technology began when I first encountered programming during high school. What started as curiosity about how websites worked quickly became a passion for understanding the logic behind digital systems. I spent countless hours learning my first programming languages and building simple projects.
+          </p>
+        </div>
+      </div>
+
+      <!-- Timeline Item 2 -->
+      <div class="timeline-item relative pl-16 pb-12">
+        <div class="timeline-dot"></div>
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="bg-green-100 text-green-800 text-sm font-semibold px-3 py-1 rounded-full">2020</span>
+            <h3 class="text-xl md:text-2xl font-bold text-gray-900">University Beginnings</h3>
+          </div>
+          <p class="text-gray-700 leading-relaxed">
+            Started my bachelor's degree in Computer Science. The transition from high school to university was challenging, but it opened my eyes to the vast world of technology. I discovered my love for problem-solving and began exploring different areas within computer science to find my true calling.
+          </p>
+        </div>
+      </div>
+
+      <!-- Timeline Item 3 -->
+      <div class="timeline-item relative pl-16 pb-12">
+        <div class="timeline-dot"></div>
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="bg-purple-100 text-purple-800 text-sm font-semibold px-3 py-1 rounded-full">2022</span>
+            <h3 class="text-xl md:text-2xl font-bold text-gray-900">Discovering Cybersecurity</h3>
+          </div>
+          <p class="text-gray-700 leading-relaxed">
+            A cybersecurity course changed everything. Learning about network security, ethical hacking, and digital forensics felt like discovering a hidden world. I realized this field combined my love for technology with the excitement of solving puzzles and protecting others. This was my "aha!" moment.
+          </p>
+        </div>
+      </div>
+
+      <!-- Timeline Item 4 -->
+      <div class="timeline-item relative pl-16 pb-12">
+        <div class="timeline-dot"></div>
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="bg-orange-100 text-orange-800 text-sm font-semibold px-3 py-1 rounded-full">2023</span>
+            <h3 class="text-xl md:text-2xl font-bold text-gray-900">Deepening Expertise</h3>
+          </div>
+          <p class="text-gray-700 leading-relaxed">
+            Dedicated my final university years to cybersecurity projects and certifications. Participated in Capture The Flag competitions, built security tools, and gained hands-on experience with penetration testing. Each project reinforced my decision to specialize in this field.
+          </p>
+        </div>
+      </div>
+
+      <!-- Timeline Item 5 -->
+      <div class="timeline-item relative pl-16 pb-12">
+        <div class="timeline-dot"></div>
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="bg-yellow-100 text-yellow-800 text-sm font-semibold px-3 py-1 rounded-full">2024</span>
+            <h3 class="text-xl md:text-2xl font-bold text-gray-900">The Blog Journey</h3>
+          </div>
+          <p class="text-gray-700 leading-relaxed">
+            Started PepoBlog to document my experiences and help other students. Writing became a way to reflect on my learning journey and connect with like-minded individuals. The positive feedback from readers motivated me to continue sharing my insights and challenges.
+          </p>
+        </div>
+      </div>
+
+      <!-- Timeline Item 6 -->
+      <div class="timeline-item relative pl-16">
+        <div class="timeline-dot"></div>
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 md:p-8 shadow-lg border-2 border-blue-200 hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="bg-indigo-100 text-indigo-800 text-sm font-semibold px-3 py-1 rounded-full">2025</span>
+            <h3 class="text-xl md:text-2xl font-bold text-gray-900">EPFL-ETHZ Adventure Begins</h3>
+          </div>
+          <p class="text-gray-700 leading-relaxed">
+            Got admitted to the prestigious joint Cybersecurity Master's program at EPFL and ETH Zurich! This marks the beginning of an exciting new chapter where I'll dive deeper into advanced cybersecurity concepts while documenting every step of this journey for my readers.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Beyond the Screen -->
+  <section class="mb-16 md:mb-20">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">Beyond the Screen</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      
+      <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white text-2xl">💪</div>
+          <h3 class="text-xl font-bold text-gray-900">Calisthenics</h3>
+        </div>
+        <p class="text-gray-700 leading-relaxed">
+          Started calisthenics three years ago and fell in love with the philosophy of mastering your own body weight. Currently working on advanced movements like muscle-ups and human flags. It's my way of staying physically strong while mentally focused, and the discipline translates perfectly to my studies.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center text-white text-2xl">🎧</div>
+          <h3 class="text-xl font-bold text-gray-900">DJing</h3>
+        </div>
+        <p class="text-gray-700 leading-relaxed">
+          Electronic music has always been my escape. I specialize in progressive house and techno, and I've performed at several local venues and university events. DJing teaches me about reading crowds, timing, and creating experiences - skills surprisingly useful in tech presentations too!
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-white text-2xl">📈</div>
+          <h3 class="text-xl font-bold text-gray-900">Private Investing</h3>
+        </div>
+        <p class="text-gray-700 leading-relaxed">
+          Fascinated by financial markets and investment strategies. I focus on long-term value investing and stay updated with market trends through books, podcasts, and financial news. Understanding economics helps me think systematically about risk management - crucial in cybersecurity too.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl flex items-center justify-center text-white text-2xl">📚</div>
+          <h3 class="text-xl font-bold text-gray-900">Reading</h3>
+        </div>
+        <p class="text-gray-700 leading-relaxed">
+          An avid reader across multiple genres - from cybersecurity technical books to philosophy and biographies. Recently finished "The Art of War" and "Thinking, Fast and Slow." Reading broadens my perspective and often provides unexpected insights for my technical work and blog writing.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Academic & Professional Background -->
+  <section class="mb-16 md:mb-20">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">Academic & Professional Background</h2>
+    
+    <div class="cv-container rounded-3xl p-8 md:p-12 shadow-2xl">
+      <div class="text-center mb-8">
+        <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">My Curriculum Vitae</h3>
+        <p class="text-blue-100 text-lg">Explore my academic journey, certifications, and projects</p>
+      </div>
+
+      <!-- CV Slideshow -->
+      <div class="bg-white rounded-2xl p-4 shadow-lg mb-8">
+        <div class="relative" style="height: 600px;">
+          <!-- Slide 1 -->
+          <div class="slide active absolute inset-0 flex items-center justify-center">
+            <div class="text-center">
+              <div class="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl text-gray-500">📄</div>
+              <h4 class="text-2xl font-bold text-gray-900 mb-4">CV Page 1</h4>
+              <p class="text-gray-600">Personal Information & Education</p>
+            </div>
+          </div>
+          
+          <!-- Slide 2 -->
+          <div class="slide absolute inset-0 flex items-center justify-center">
+            <div class="text-center">
+              <div class="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl text-gray-500">🎓</div>
+              <h4 class="text-2xl font-bold text-gray-900 mb-4">CV Page 2</h4>
+              <p class="text-gray-600">Certifications & Skills</p>
+            </div>
+          </div>
+          
+          <!-- Slide 3 -->
+          <div class="slide absolute inset-0 flex items-center justify-center">
+            <div class="text-center">
+              <div class="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl text-gray-500">💼</div>
+              <h4 class="text-2xl font-bold text-gray-900 mb-4">CV Page 3</h4>
+              <p class="text-gray-600">Projects & Experience</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="flex justify-center items-center gap-4 mb-8">
+        <button onclick="previousSlide()" class="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-full transition-all">
+          ← Previous
+        </button>
+        <div class="flex gap-2">
+          <button onclick="currentSlide(1)" class="slide-dot w-3 h-3 bg-white rounded-full opacity-100"></button>
+          <button onclick="currentSlide(2)" class="slide-dot w-3 h-3 bg-white/50 rounded-full"></button>
+          <button onclick="currentSlide(3)" class="slide-dot w-3 h-3 bg-white/50 rounded-full"></button>
+        </div>
+        <button onclick="nextSlide()" class="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-full transition-all">
+          Next →
+        </button>
+      </div>
+
+      <!-- Download Button -->
+      <div class="text-center">
+        <a href="assets/pepo-cv.pdf" download class="inline-flex items-center gap-3 bg-white text-purple-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          Download Full CV
+        </a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer class="mt-12 md:mt-16 p-6 md:p-8 text-center text-sm md:text-base text-gray-600 border-t bg-white">
   <p>© 2025 PepoBlog. All rights reserved.</p>
 </footer>
+
+<script>
+let slideIndex = 1;
+
+function nextSlide() {
+  showSlide(slideIndex += 1);
+}
+
+function previousSlide() {
+  showSlide(slideIndex -= 1);
+}
+
+function currentSlide(n) {
+  showSlide(slideIndex = n);
+}
+
+function showSlide(n) {
+  let slides = document.getElementsByClassName("slide");
+  let dots = document.getElementsByClassName("slide-dot");
+  
+  if (n > slides.length) { slideIndex = 1; }
+  if (n < 1) { slideIndex = slides.length; }
+  
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].classList.remove("active");
+  }
+  
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].classList.remove("opacity-100");
+    dots[i].classList.add("opacity-50");
+  }
+  
+  slides[slideIndex - 1].classList.add("active");
+  dots[slideIndex - 1].classList.remove("opacity-50");
+  dots[slideIndex - 1].classList.add("opacity-100");
+}
+</script>
+
 </body>
 </html>
