@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Write Me - PepoBlog</title>
-  <link rel="icon" href="../assets/site.png" type="image/png">
+  <link rel="icon" href="assets/site.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -12,6 +12,7 @@
   </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
+
 <header class="bg-white shadow-lg border-b-4 border-blue-500 fixed top-0 left-0 right-0 z-50">
   <div class="max-w-6xl mx-auto px-4 py-4 md:py-8">
     <div class="flex items-center justify-center mb-6">
@@ -23,11 +24,12 @@
         <p class="text-base md:text-xl text-gray-600">Personal stories, thoughts,<br>and inspiration</p>
       </div>
     </div>
-    
+
     <nav class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full px-4 md:px-8 py-4 flex justify-center space-x-3 md:space-x-8 shadow-lg">
       <a href="index.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full md:text-lg">Home</a>
-      <a href="about.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all md:text-lg">About Me</a>
-      <a href="contact.html"  class="text-white font-semibold bg-white/20 px-3 md:px-4 py-2 rounded-full text-base md:text-lg">Write Me</a>
+      <a href="articles.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all md:text-lg">Articles</a>
+      <a href="about.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full md:text-lg">About Me</a>
+      <a href="contact.html" class="text-white font-semibold bg-white/20 px-3 md:px-4 py-2 rounded-full text-base md:text-lg">Write Me</a>
     </nav>
   </div>
 </header>
@@ -39,7 +41,8 @@
       <p class="text-base md:text-lg text-gray-700 leading-relaxed">I'd love to hear from you. Send me a message and I'll get back to you as soon as possible.</p>
     </header>
 
-    <form action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST" class="space-y-6">
+    <form action="https://formsubmit.co/giuseppe.allocca04@gmail.com" method="POST" class="space-y-6">
+      <input type="hidden" name="_captcha" value="false">
       <div>
         <label class="block text-base md:text-lg font-semibold text-gray-900 mb-3">Name</label>
         <input type="text" name="name" required class="w-full border-2 border-gray-300 p-3 md:p-4 rounded-xl focus:border-blue-500 focus:outline-none transition-colors text-base md:text-lg" />
@@ -55,10 +58,30 @@
       <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-3 md:py-4 rounded-xl hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 font-semibold shadow-lg text-base md:text-lg">Send Message</button>
     </form>
   </div>
+
+  <!-- Contact Info Section -->
+  <div class="bg-white p-6 md:p-8 lg:p-10 mt-12 rounded-xl shadow-lg">
+    <h3 class="text-xl md:text-2xl font-bold mb-6 text-gray-900">Direct Contacts</h3>
+    <ul class="space-y-4 text-base md:text-lg text-gray-700">
+      <li class="flex items-center gap-3">
+        📞 <span class="font-medium">Phone:</span> <a href="tel:+393334445556" class="text-blue-600 hover:underline">+39 333 444 5556</a>
+      </li>
+      <li class="flex items-center gap-3">
+        📧 <span class="font-medium">Email:</span> <a href="mailto:giuseppe.allocca04@gmail.com" class="text-blue-600 hover:underline">giuseppe.allocca04@gmail.com</a>
+      </li>
+      <li class="flex items-center gap-3">
+        📸 <span class="font-medium">Instagram:</span> <a href="https://instagram.com/your_username" target="_blank" class="text-blue-600 hover:underline">@your_username</a>
+      </li>
+      <li class="flex items-center gap-3">
+        💼 <span class="font-medium">LinkedIn:</span> <a href="https://linkedin.com/in/your-username" target="_blank" class="text-blue-600 hover:underline">linkedin.com/in/your-username</a>
+      </li>
+    </ul>
+  </div>
 </main>
 
 <footer class="mt-12 md:mt-16 p-6 md:p-8 text-center text-sm md:text-base text-gray-600 border-t bg-white">
   <p>© 2025 PepoBlog. All rights reserved.</p>
 </footer>
+
 </body>
 </html>
