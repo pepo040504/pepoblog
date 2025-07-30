@@ -4,70 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get in Touch - Contatti</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Stili Generali */
+        :root {
+            --primary-blue: #4a00e0; /* Blu scuro */
+            --secondary-purple: #9d50bb; /* Viola più chiaro */
+            --text-dark: #333;
+            --text-light: #555;
+            --card-bg: #fff;
+            --section-card-bg: #f9f9f9; /* Sfondo leggermente grigio per le sezioni interne */
+            --border-light: #eee;
+            --input-border: #ddd;
+            --input-focus-border: #6a11cb; /* Colore viola per il focus */
+            --button-bg: #6a11cb;
+            --button-hover-bg: #8c42e2;
+            --icon-circle-bg: #e0f2f7; /* Sfondo generico icona */
+        }
+
+        /* Stili Generali e Reset */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', Arial, sans-serif; /* Usa Poppins */
             margin: 0;
-            background-color: #f4f7fa;
-            color: #333;
+            background-color: #f4f7fa; /* Sfondo generale della pagina */
+            color: var(--text-dark);
             display: flex;
-            justify-content: center;
-            align-items: flex-start; /* Allinea in alto per ridurre lo spazio verticale iniziale */
-            min-height: 100vh; /* Rimuovi o riduci questo se vuoi meno spazio verticale totale */
-            padding: 20px 0; /* Ridotto padding verticale generale */
+            flex-direction: column; /* Per allineare banner e poi il resto */
+            min-height: 100vh;
         }
 
-        .container {
-            width: 90%;
-            max-width: 960px;
-            margin: 0 auto;
+        /* Stile del Banner (simile all'immagine) */
+        .header-banner {
+            background: linear-gradient(to right, #4a00e0, #9d50bb); /* Gradiente dell'immagine */
+            color: white;
+            padding: 60px 20px; /* Padding verticale significativo per il banner */
             text-align: center;
-            padding: 20px; /* Padding ridotto per il contenitore principale */
         }
 
-        h1 {
-            color: #4a00e0;
+        .header-banner h1 {
+            font-size: 2.8em;
             margin-bottom: 10px;
-            font-size: 2.5em;
+            font-weight: 700; /* Bold per il titolo */
         }
 
-        .description {
-            font-size: 1.1em;
-            color: #555;
+        .header-banner p {
+            font-size: 1.15em;
             line-height: 1.6;
-            margin-bottom: 40px; /* Spazio sotto la descrizione */
+            max-width: 800px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.9); /* Leggermente meno bianco */
         }
 
-        /* Stili delle Sezioni */
+        /* Contenitore principale della card */
+        .main-content-wrapper {
+            width: 90%;
+            max-width: 1000px; /* Larghezza massima aumentata leggermente */
+            margin: -80px auto 40px auto; /* Spostato più in alto per sovrapporsi al banner */
+            background-color: var(--card-bg);
+            padding: 40px; /* Padding della card principale, leggermente ridotto se necessario */
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Ombra più pronunciata */
+            box-sizing: border-box; /* Include padding e border nella larghezza/altezza */
+        }
+
+        /* Layout delle sezioni interne */
         .contact-sections {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Layout responsivo */
             gap: 30px; /* Spazio tra le colonne */
-            background-color: #fff;
-            padding: 30px; /* Padding della card principale */
-            border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
 
         .section-card {
-            background-color: #f9f9f9;
-            padding: 25px;
+            background-color: var(--card-bg); /* Sfondo bianco come la card principale */
+            padding: 30px; /* Padding all'interno di ogni sezione */
             border-radius: 10px;
-            border: 1px solid #eee;
+            /* border: 1px solid var(--border-light); No border visibile nell'immagine per queste card */
             text-align: left;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Ombra più leggera per le singole sezioni */
         }
 
         .section-card h2 {
-            color: #6a11cb;
+            color: var(--primary-blue); /* Colore viola come nell'immagine */
             margin-top: 0;
             margin-bottom: 25px;
-            font-size: 1.8em;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 10px;
+            font-size: 1.6em; /* Dimensione del titolo delle sezioni */
+            font-weight: 600;
+            /* border-bottom: 2px solid #e0e0e0; */ /* Rimosso, non presente nell'immagine */
+            padding-bottom: 0; /* Rimosso */
         }
 
         /* Stili Modulo di Contatto */
@@ -78,46 +105,51 @@
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            font-weight: bold;
-            color: #444;
+            font-weight: 500; /* Meno bold */
+            color: var(--text-dark);
+            font-size: 0.95em;
         }
 
         .form-group input,
         .form-group textarea {
-            width: calc(100% - 20px); /* Regola per padding interno */
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
+            width: 100%; /* Occupa tutta la larghezza disponibile */
+            padding: 12px;
+            border: 1px solid var(--input-border);
+            border-radius: 8px; /* Bordi più arrotondati */
             font-size: 1em;
-            transition: border-color 0.3s;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            box-sizing: border-box; /* Importante per width: 100% con padding */
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
-            border-color: #6a11cb;
+            border-color: var(--input-focus-border);
+            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.2); /* Ombra leggera al focus */
             outline: none;
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 100px;
+            min-height: 120px; /* Altezza leggermente aumentata */
         }
 
         .send-button {
-            background-color: #6a11cb;
+            background-color: var(--button-bg);
             color: white;
             padding: 12px 25px;
             border: none;
-            border-radius: 8px;
+            border-radius: 8px; /* Bordi arrotondati come nell'immagine */
             font-size: 1.1em;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            width: auto;
+            width: auto; /* Per non farlo allungare su tutta la larghezza */
             margin-top: 10px;
+            align-self: flex-start; /* Allinea a sinistra */
+            font-weight: 600;
         }
 
         .send-button:hover {
-            background-color: #8c42e2;
+            background-color: var(--button-hover-bg);
         }
 
         /* Stili Contatti e Profili */
@@ -135,59 +167,66 @@
         }
 
         .icon-circle {
-            width: 45px;
-            height: 45px;
+            width: 50px; /* Dimensioni leggermente più grandi per le icone */
+            height: 50px;
             border-radius: 50%;
-            background-color: #e0f2f7; /* Colore di sfondo per l'icona */
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.4em;
-            color: #007bff; /* Colore predefinito per l'icona */
+            font-size: 1.6em; /* Dimensione dell'icona */
         }
 
-        .icon-circle.email { background-color: #ffe0b2; color: #ff9800; } /* Giallo per email */
+        /* Colori specifici delle icone come nell'immagine */
+        .icon-circle.email { background-color: #ffe0b2; color: #ff9800; } /* Arancione/Giallo */
         .icon-circle.linkedin { background-color: #e3f2fd; color: #0077b5; } /* Blu LinkedIn */
         .icon-circle.instagram { background-color: #fce4ec; color: #E1306C; } /* Rosa Instagram */
         .icon-circle.github { background-color: #e0e0e0; color: #333; } /* Grigio GitHub */
-        .icon-circle.phone { background-color: #d1c4e9; color: #673ab7; } /* Viola Telefono */
+        .icon-circle.phone { background-color: #d1c4e9; color: #673ab7; } /* Viola Telefono (assumendo un colore coerente) */
 
 
         .contact-info a,
         .profile-info a {
             text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            font-size: 1.1em;
+            color: var(--text-dark); /* Testo scuro */
+            font-weight: 600; /* Più bold */
+            font-size: 1.05em;
             transition: color 0.3s;
         }
 
         .contact-info a:hover,
         .profile-info a:hover {
-            color: #6a11cb;
+            color: var(--primary-blue); /* Colore al hover */
         }
 
         .contact-info span,
         .profile-info span {
             display: block;
             font-size: 0.9em;
-            color: #777;
+            color: var(--text-light); /* Testo più chiaro */
             margin-top: 2px;
         }
 
         /* Media Queries per Responsività */
         @media (max-width: 768px) {
+            .header-banner {
+                padding: 40px 15px;
+            }
+            .header-banner h1 {
+                font-size: 2.2em;
+            }
+            .header-banner p {
+                font-size: 1em;
+            }
+
+            .main-content-wrapper {
+                margin-top: -60px; /* Regola la sovrapposizione */
+                padding: 25px;
+                width: 95%; /* Meno margine ai lati su mobile */
+            }
+
             .contact-sections {
                 grid-template-columns: 1fr; /* Una colonna su schermi più piccoli */
                 gap: 25px;
-            }
-
-            .container {
-                padding: 15px;
-            }
-
-            .description {
-                margin-bottom: 30px;
             }
 
             .section-card {
@@ -195,22 +234,38 @@
             }
 
             .section-card h2 {
-                font-size: 1.6em;
+                font-size: 1.4em;
                 margin-bottom: 20px;
             }
 
             .form-group input,
             .form-group textarea {
-                width: calc(100% - 16px);
+                padding: 10px;
+            }
+            .send-button {
+                width: 100%; /* Pulsante a larghezza piena su mobile */
+            }
+            .icon-circle {
+                width: 45px;
+                height: 45px;
+                font-size: 1.4em;
+            }
+            .contact-info a, .profile-info a {
+                font-size: 1em;
+            }
+            .contact-info span, .profile-info span {
+                font-size: 0.85em;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <header class="header-banner">
         <h1>Get in Touch</h1>
-        <p class="description">Whether you have a question, want to collaborate, or just say hello, I'd love to hear from you! Feel free to reach out through any of the channels below.</p>
+        <p>Whether you have a question, want to collaborate, or just say hello, I'd love to hear from you! Feel free to reach out through any of the channels below.</p>
+    </header>
 
+    <div class="main-content-wrapper">
         <div class="contact-sections">
             <div class="section-card send-message-section">
                 <h2>Send Me a Message</h2>
