@@ -43,6 +43,90 @@
     .slide.active {
       display: block;
     }
+    .slideshow-container {
+      position: relative;
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+    
+    .slide {
+      display: none;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .slide.active {
+      display: block;
+    }
+    
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+    
+    @media (max-width: 768px) {
+      .slideshow-container {
+        max-width: 400px;
+      }
+    }
+    
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -22px;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      background: rgba(0,0,0,0.5);
+      border: none;
+      user-select: none;
+      transition: background 0.3s;
+    }
+    
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    
+    .prev {
+      left: 0;
+      border-radius: 0 3px 3px 0;
+    }
+    
+    .prev:hover, .next:hover {
+      background: rgba(0,0,0,0.8);
+    }
+    
+    .dots-container {
+      text-align: center;
+      padding: 20px;
+      background: transparent;
+    }
+    
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 5px;
+      background-color: rgba(255,255,255,0.5);
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+    
+    .dot.active, .dot:hover {
+      background-color: white;
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -237,49 +321,38 @@
   <section class="mb-16 md:mb-20">
     <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">Academic & Professional Background</h2>
     
-    <div class="cv-container rounded-3xl p-8 md:p-12 shadow-2xl">
+    <div class="cv-container rounded-3xl p-6 md:p-8 shadow-2xl">
       <div class="text-center mb-8">
         <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">My Curriculum Vitae</h3>
         <p class="text-blue-100 text-lg">Explore my academic journey, certifications, and projects</p>
       </div>
 
       <!-- CV Slideshow -->
-      <div class="bg-white rounded-2xl p-4 shadow-lg mb-8">
-        <div class="relative" style="height: 680px;">
-          <!-- Slide 1 -->
-          <div class="slide active absolute inset-0 p-4">
-            <img src="assets/CV/cv1.jpg" alt="CV Page 1 - Personal Information & Education" class="w-full h-full object-contain rounded-lg shadow-md" />
-          </div>
-          
-          <!-- Slide 2 -->
-          <div class="slide absolute inset-0 p-4">
-            <img src="assets/CV/cv2.jpg" alt="CV Page 2 - Certifications & Skills" class="w-full h-full object-contain rounded-lg shadow-md" />
-          </div>
-          
-          <!-- Slide 3 -->
-          <div class="slide absolute inset-0 p-4">
-            <img src="assets/CV/cv3.jpg" alt="CV Page 3 - Projects & Experience" class="w-full h-full object-contain rounded-lg shadow-md" />
-          </div>
+      <div class="slideshow-container shadow-lg">
+        <div class="slide active">
+          <img src="assets/CV/cv1.jpg" alt="CV Page 1 - Personal Information & Education" class="cursor-pointer" onclick="openImageModal(this)">
         </div>
+        
+        <div class="slide">
+          <img src="assets/CV/cv2.jpg" alt="CV Page 2 - Certifications & Skills" class="cursor-pointer" onclick="openImageModal(this)">
+        </div>
+        
+        <div class="slide">
+          <img src="assets/CV/cv3.jpg" alt="CV Page 3 - Projects & Experience" class="cursor-pointer" onclick="openImageModal(this)">
+        </div>
+        
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
       </div>
-
-      <!-- Navigation -->
-      <div class="flex justify-center items-center gap-4 mb-8">
-        <button onclick="previousSlide()" class="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-full transition-all">
-          ← Previous
-        </button>
-        <div class="flex gap-2">
-          <button onclick="currentSlide(1)" class="slide-dot w-3 h-3 bg-white rounded-full opacity-100"></button>
-          <button onclick="currentSlide(2)" class="slide-dot w-3 h-3 bg-white/50 rounded-full"></button>
-          <button onclick="currentSlide(3)" class="slide-dot w-3 h-3 bg-white/50 rounded-full"></button>
-        </div>
-        <button onclick="nextSlide()" class="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-full transition-all">
-          Next →
-        </button>
+      <br>
+      <div class="dots-container">
+        <span class="dot active" onclick="currentCVSlide(1)"></span>
+        <span class="dot" onclick="currentCVSlide(2)"></span>
+        <span class="dot" onclick="currentCVSlide(3)"></span>
       </div>
 
       <!-- Download Button -->
-      <div class="text-center">
+      <div class="text-center mb-8">
         <a href="assets/CV/cv.pdf" download class="inline-flex items-center gap-3 bg-white text-purple-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
@@ -287,50 +360,74 @@
           Download Full CV
         </a>
       </div>
+
+      <!-- Hint text -->
+      <div class="text-center">
+        <p class="text-blue-100 text-sm">💡 Click on the CV images to view them in full size</p>
+      </div>
     </div>
   </section>
 
 </main>
+
+<!-- Image Modal -->
+<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 hidden z-50 flex items-center justify-center p-4" onclick="closeImageModal()">
+  <div class="relative max-w-full max-h-full">
+    <img id="modalImage" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
+    <button onclick="closeImageModal()" class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition-colors">&times;</button>
+  </div>
+</div>
 
 <footer class="mt-12 md:mt-16 p-6 md:p-8 text-center text-sm md:text-base text-gray-600 border-t bg-white">
   <p>© 2025 PepoBlog. All rights reserved.</p>
 </footer>
 
 <script>
-let slideIndex = 1;
+let cvSlideIndex = 0;
+const cvSlides = document.querySelectorAll('.slide');
+const cvDots = document.querySelectorAll('.dot');
 
-function nextSlide() {
-  showSlide(slideIndex += 1);
-}
-
-function previousSlide() {
-  showSlide(slideIndex -= 1);
-}
-
-function currentSlide(n) {
-  showSlide(slideIndex = n);
-}
-
-function showSlide(n) {
-  let slides = document.getElementsByClassName("slide");
-  let dots = document.getElementsByClassName("slide-dot");
+function showCVSlide(index) {
+  cvSlides.forEach(slide => slide.classList.remove('active'));
+  cvDots.forEach(dot => dot.classList.remove('active'));
   
-  if (n > slides.length) { slideIndex = 1; }
-  if (n < 1) { slideIndex = slides.length; }
+  cvSlideIndex = index;
+  if (cvSlideIndex >= cvSlides.length) cvSlideIndex = 0;
+  if (cvSlideIndex < 0) cvSlideIndex = cvSlides.length - 1;
   
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].classList.remove("active");
+  cvSlides[cvSlideIndex].classList.add('active');
+  cvDots[cvSlideIndex].classList.add('active');
+}
+
+function changeSlide(direction) {
+  showCVSlide(cvSlideIndex + direction);
+}
+
+function currentCVSlide(index) {
+  showCVSlide(index - 1);
+}
+
+function openImageModal(img) {
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+  modal.classList.remove('hidden');
+  modalImg.src = img.src;
+  modalImg.alt = img.alt;
+  document.body.style.overflow = 'hidden';
+}
+
+function closeImageModal() {
+  const modal = document.getElementById('imageModal');
+  modal.classList.add('hidden');
+  document.body.style.overflow = 'auto';
+}
+
+// Close modal with ESC key
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    closeImageModal();
   }
-  
-  for (let i = 0; i < dots.length; i++) {
-    dots[i].classList.remove("opacity-100");
-    dots[i].classList.add("opacity-50");
-  }
-  
-  slides[slideIndex - 1].classList.add("active");
-  dots[slideIndex - 1].classList.remove("opacity-50");
-  dots[slideIndex - 1].classList.add("opacity-100");
-}
+});
 </script>
 
 </body>
