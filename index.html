@@ -1,20 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PepoBlog</title>
-  <link rel="icon" href="site.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PepoBlog</title>
+  <link rel="icon" href="site.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    /* Style for the mobile menu, hidden by default */
+    .mobile-menu {
+      display: none;
+    }
+    .mobile-menu.open {
+      display: flex; /* Or block, depending on layout needs */
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    /* Hamburger icon styling */
+    .hamburger {
+      cursor: pointer;
+      display: none; /* Hidden on larger screens */
+    }
+    @media (max-width: 767px) { /* Tailind CSS 'md' breakpoint is 768px */
+      .hamburger {
+        display: block; /* Show hamburger on small screens */
+      }
+      .main-nav {
+        display: none; /* Hide main nav on small screens */
+      }
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
 <header class="bg-white shadow-lg border-b-4 border-blue-500 fixed top-0 left-0 right-0 z-50">
   <div class="max-w-6xl mx-auto px-4 py-4 md:py-8">
-    <div class="flex items-center justify-center mb-6">
+    <div class="flex items-center justify-between mb-6 md:justify-center">
       <div class="flex-shrink-0 mr-2 md:mr-8">
         <img src="assets/logo.png" alt="PepoBlog Logo" class="h-16 md:h-20" />
       </div>
@@ -22,132 +47,147 @@
         <h1 class="text-2xl md:text-4xl font-bold bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent mb-2">PepoBlog</h1>
         <p class="text-base md:text-xl text-gray-600">Personal stories, thoughts,<br>and inspiration</p>
       </div>
+      <div class="hamburger md:hidden" id="hamburger-icon">
+        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </div>
     </div>
-    <nav class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full px-4 md:px-8 py-4 flex justify-center space-x-3 md:space-x-8 shadow-lg">
+    <nav class="main-nav bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full px-4 md:px-8 py-4 md:flex justify-center space-x-3 md:space-x-8 shadow-lg hidden md:flex">
       <a href="index.html" class="text-white font-semibold bg-white/20 px-3 md:px-4 py-2 rounded-full text-base md:text-lg">Home</a>
       <a href="articles.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all md:text-lg">Articles</a>
       <a href="about.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all md:text-lg">About Me</a>
       <a href="contact.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all md:text-lg">Write Me</a>
     </nav>
+
+    <nav class="mobile-menu bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg px-4 py-2 mt-4 shadow-lg" id="mobile-menu">
+      <a href="index.html" class="text-white font-semibold hover:bg-white/20 px-3 py-2 rounded-full text-base w-full text-center">Home</a>
+      <a href="articles.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 py-2 rounded-full transition-all w-full text-center">Articles</a>
+      <a href="about.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 py-2 rounded-full transition-all w-full text-center">About Me</a>
+      <a href="contact.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 py-2 rounded-full transition-all w-full text-center">Write Me</a>
+    </nav>
   </div>
 </header>
 
 <main class="max-w-4xl mx-auto px-4 py-8 mt-48 md:mt-64">
-  
-  <!-- Latest Articles Section -->
-  <section class="mb-12 md:mb-16">
-    <div class="flex items-center justify-between mb-8">
-      <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Latest Articles</h2>
-      <a href="articles.html" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
-        View All Articles
-      </a>
-    </div>
-    <div class="grid md:grid-cols-2 gap-6 md:gap-8">
-      <a href="articles/article1.html" class="group block bg-white border rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
-        <img src="assets/article1.jpg" alt="Article 1 thumbnail image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
-        <div class="p-6">
-          <h3 class="text-lg md:text-xl font-semibold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">My Admission to EPFL-ETHZ</h3>
-          <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-3">Some thoughts about my admission at the Cybersecurity's program and a complete picture about my profile</p>
-          <p class="text-base md:text-lg text-gray-600 mt-2">Published: <span class="font-medium text-gray-700">July 28, 2025</span></p>
-        </div>
-      </a>
-      <a href="articles/article2.html" class="group block bg-white border rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
-        <img src="assets/article2.jpg" alt="Article 2 thumbnail image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
-        <div class="p-6">
-          <h3 class="text-lg md:text-xl font-semibold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">University Life</h3>
-          <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-3">From choosing your path to graduation success: tips and tricks I discovered during my bachelor's degree</p>
-          <p class="text-base md:text-lg text-gray-600 mt-2">Published: <span class="font-medium text-gray-700">July 20, 2025</span></p>
-        </div>
-      </a>
-      <a href="articles/article3.html" class="group block bg-white border rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
-        <img src="assets/article3.jpg" alt="Article 3 thumbnail image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
-        <div class="p-6">
-          <h3 class="text-lg md:text-xl font-semibold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">Learning Cybersecurity</h3>
-          <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-3">My journey into cybersecurity: resources, challenges, and breakthrough moments that shaped my understanding</p>
-          <p class="text-base md:text-lg text-gray-600 mt-2">Published: <span class="font-medium text-gray-700">July 15, 2025</span></p>
-        </div>
-      </a>
-      <a href="articles/article4.html" class="group block bg-white border rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
-        <img src="assets/article4.jpg" alt="Article 4 thumbnail image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
-        <div class="p-6">
-          <h3 class="text-lg md:text-xl font-semibold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">Study Abroad Experience</h3>
-          <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-3">Reflections on studying in a different country: cultural adaptation, academic challenges, and personal growth</p>
-          <p class="text-base md:text-lg text-gray-600 mt-2">Published: <span class="font-medium text-gray-700">July 10, 2025</span></p>
-        </div>
-      </a>
-    </div>
-  </section>
+  
+    <section class="mb-12 md:mb-16">
+    <div class="flex items-center justify-between mb-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Latest Articles</h2>
+      <a href="articles.html" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+        View All Articles
+      </a>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+      <a href="articles/article1.html" class="group block bg-white border rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
+        <img src="assets/article1.jpg" alt="Article 1 thumbnail image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+        <div class="p-6">
+          <h3 class="text-lg md:text-xl font-semibold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">My Admission to EPFL-ETHZ</h3>
+          <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-3">Some thoughts about my admission at the Cybersecurity's program and a complete picture about my profile</p>
+          <p class="text-base md:text-lg text-gray-600 mt-2">Published: <span class="font-medium text-gray-700">July 28, 2025</span></p>
+        </div>
+      </a>
+      <a href="articles/article2.html" class="group block bg-white border rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
+        <img src="assets/article2.jpg" alt="Article 2 thumbnail image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+        <div class="p-6">
+          <h3 class="text-lg md:text-xl font-semibold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">University Life</h3>
+          <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-3">From choosing your path to graduation success: tips and tricks I discovered during my bachelor's degree</p>
+          <p class="text-base md:text-lg text-gray-600 mt-2">Published: <span class="font-medium text-gray-700">July 20, 2025</span></p>
+        </div>
+      </a>
+      <a href="articles/article3.html" class="group block bg-white border rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
+        <img src="assets/article3.jpg" alt="Article 3 thumbnail image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+        <div class="p-6">
+          <h3 class="text-lg md:text-xl font-semibold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">Learning Cybersecurity</h3>
+          <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-3">My journey into cybersecurity: resources, challenges, and breakthrough moments that shaped my understanding</p>
+          <p class="text-base md:text-lg text-gray-600 mt-2">Published: <span class="font-medium text-gray-700">July 15, 2025</span></p>
+        </div>
+      </a>
+      <a href="articles/article4.html" class="group block bg-white border rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
+        <img src="assets/article4.jpg" alt="Article 4 thumbnail image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+        <div class="p-6">
+          <h3 class="text-lg md:text-xl font-semibold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">Study Abroad Experience</h3>
+          <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-3">Reflections on studying in a different country: cultural adaptation, academic challenges, and personal growth</p>
+          <p class="text-base md:text-lg text-gray-600 mt-2">Published: <span class="font-medium text-gray-700">July 10, 2025</span></p>
+        </div>
+      </a>
+    </div>
+  </section>
 
-  <!-- Currently Section -->
-  <section class="mb-12 md:mb-16">
-    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gray-900">Currently</h2>
-    <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100">
-      <div class="grid md:grid-cols-2 gap-6">
-        <div>
-          <h3 class="text-lg font-semibold mb-3 text-blue-600">📚 Reading</h3>
-          <p class="text-gray-700">"The Cybersecurity Handbook" by Mark Stanislav</p>
-        </div>
-        <div>
-          <h3 class="text-lg font-semibold mb-3 text-green-600">🎯 Working On</h3>
-          <p class="text-gray-700">Preparing for my first semester at EPFL-ETHZ</p>
-        </div>
-        <div>
-          <h3 class="text-lg font-semibold mb-3 text-purple-600">💻 Learning</h3>
-          <p class="text-gray-700">Advanced network security and penetration testing</p>
-        </div>
-        <div>
-          <h3 class="text-lg font-semibold mb-3 text-orange-600">🌟 Recently</h3>
-          <p class="text-gray-700">Got admitted to EPFL-ETHZ Cybersecurity program!</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section class="mb-12 md:mb-16">
+    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gray-900">Currently</h2>
+    <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-lg font-semibold mb-3 text-blue-600">📚 Reading</h3>
+          <p class="text-gray-700">"The Cybersecurity Handbook" by Mark Stanislav</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-3 text-green-600">🎯 Working On</h3>
+          <p class="text-gray-700">Preparing for my first semester at EPFL-ETHZ</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-3 text-purple-600">💻 Learning</h3>
+          <p class="text-gray-700">Advanced network security and penetration testing</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-3 text-orange-600">🌟 Recently</h3>
+          <p class="text-gray-700">Got admitted to EPFL-ETHZ Cybersecurity program!</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Stats Section -->
-  <section class="mb-12 md:mb-16">
-    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gray-900">Quick Stats</h2>
-    <div class="grid md:grid-cols-4 gap-6">
-      <div class="bg-white rounded-2xl p-6 shadow-lg text-center border border-gray-100">
-        <div class="text-3xl font-bold text-blue-600 mb-2">15+</div>
-        <div class="text-gray-600">Articles Written</div>
-      </div>
-      <div class="bg-white rounded-2xl p-6 shadow-lg text-center border border-gray-100">
-        <div class="text-3xl font-bold text-green-600 mb-2">3rd</div>
-        <div class="text-gray-600">University Year</div>
-      </div>
-      <div class="bg-white rounded-2xl p-6 shadow-lg text-center border border-gray-100">
-        <div class="text-3xl font-bold text-purple-600 mb-2">2</div>
-        <div class="text-gray-600">Years Blogging</div>
-      </div>
-      <div class="bg-white rounded-2xl p-6 shadow-lg text-center border border-gray-100">
-        <div class="text-3xl font-bold text-orange-600 mb-2">5+</div>
-        <div class="text-gray-600">Tech Projects</div>
-      </div>
-    </div>
-  </section>
+    <section class="mb-12 md:mb-16">
+    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gray-900">Quick Stats</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">       <div class="bg-white rounded-2xl p-6 shadow-lg text-center border border-gray-100">
+        <div class="text-3xl font-bold text-blue-600 mb-2">15+</div>
+        <div class="text-gray-600">Articles Written</div>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-lg text-center border border-gray-100">
+        <div class="text-3xl font-bold text-green-600 mb-2">3rd</div>
+        <div class="text-gray-600">University Year</div>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-lg text-center border border-gray-100">
+        <div class="text-3xl font-bold text-purple-600 mb-2">2</div>
+        <div class="text-gray-600">Years Blogging</div>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-lg text-center border border-gray-100">
+        <div class="text-3xl font-bold text-orange-600 mb-2">5+</div>
+        <div class="text-gray-600">Tech Projects</div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Why I Write Section -->
-  <section class="mb-12 md:mb-16">
-    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 md:p-8 border border-blue-100">
-      <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gray-900">Why I Write This Blog</h2>
-      <div class="text-lg md:text-xl text-gray-700 leading-relaxed space-y-4">
-        <p>
-          University can feel overwhelming, especially when you're navigating computer science studies and trying to break into cybersecurity. I remember feeling lost during my first years, wishing I had someone to share their real experiences and lessons learned.
-        </p>
-        <p>
-          That's why I started this blog. I write about the challenges I face, the mistakes I make, and the insights I discover along the way. Whether it's study techniques that actually work, navigating university bureaucracy, or diving deep into cybersecurity concepts, I share what I wish someone had told me.
-        </p>
-        <p>
-          My goal is simple: help other students feel less alone in their journey and maybe save them from some of the mistakes I made. If my experiences can help even one person feel more confident about their path, then this blog serves its purpose.
-        </p>
-      </div>
-    </div>
-  </section>
+    <section class="mb-12 md:mb-16">
+    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 md:p-8 border border-blue-100">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gray-900">Why I Write This Blog</h2>
+      <div class="text-lg md:text-xl text-gray-700 leading-relaxed space-y-4">
+        <p>
+          University can feel overwhelming, especially when you're navigating computer science studies and trying to break into cybersecurity. I remember feeling lost during my first years, wishing I had someone to share their real experiences and lessons learned.
+        </p>
+        <p>
+          That's why I started this blog. I write about the challenges I face, the mistakes I make, and the insights I discover along the way. Whether it's study techniques that actually work, navigating university bureaucracy, or diving deep into cybersecurity concepts, I share what I wish someone had told me.
+        </p>
+        <p>
+          My goal is simple: help other students feel less alone in their journey and maybe save them from some of the mistakes I made. If my experiences can help even one person feel more confident about their path, then this blog serves its purpose.
+        </p>
+      </div>
+    </div>
+  </section>
 
 </main>
 
 <footer class="mt-12 md:mt-16 p-6 md:p-8 text-center text-sm md:text-base text-gray-600 border-t bg-white">
-  <p>© 2025 PepoBlog. All rights reserved.</p>
+  <p>© 2025 PepoBlog. All rights reserved.</p>
 </footer>
+
+<script>
+  // JavaScript to toggle the mobile menu
+  document.getElementById('hamburger-icon').addEventListener('click', function() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenu.classList.toggle('open');
+  });
+</script>
 </body>
 </html>
