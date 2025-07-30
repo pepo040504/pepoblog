@@ -1,208 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contacts - PepoBlog</title>
-    <link rel="icon" href="site.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-
-        /* Stili personalizzati per gli elementi di contatto/profilo */
-        /* Replicando lo stile di .contact-info-item e .contact-icon-wrapper dal tuo About Me */
-        .contact-entry-item {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem; /* Spazio tra icona e testo */
-            padding: 1.25rem;
-            background: white; /* Le singole entry hanno il loro sfondo bianco */
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-        .contact-entry-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 12px rgba(0,0,0,0.1);
-        }
-        .contact-icon-wrapper {
-            flex-shrink: 0;
-            width: 4rem; /* Dimensione aumentata per le icone */
-            height: 4rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white; /* Colore dell'icona (bianco) */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            font-size: 2.25rem; /* Dimensione dell'icona Font Awesome */
-        }
-
-        /* Colori specifici per le icone, usando i gradienti e colori simili a quelli del tuo About Me */
-        .icon-email { background: linear-gradient(45deg, #FF9800, #F44336); /* Arancione/Rosso */ }
-        .icon-linkedin { background: linear-gradient(45deg, #0077B5, #00A0DC); } /* Blu LinkedIn */
-        .icon-instagram { background: linear-gradient(45deg, #E1306C, #FD1D1D); } /* Rosa/Rosso Instagram */
-        .icon-github { background: linear-gradient(45deg, #1A1A1A, #333333); } /* Grigio scuro GitHub */
-        .icon-phone { background: linear-gradient(45deg, #673AB7, #9C27B0); } /* Viola scuro/chiaro per il telefono */
-
-        /* Stili per il pulsante Send Message per mantenere lo stile esistente di Tailwind */
-        .send-message-button {
-            display: inline-flex;
-            justify-center: center;
-            padding-top: 0.75rem;
-            padding-bottom: 0.75rem;
-            padding-left: 2rem;
-            padding-right: 2rem;
-            border: none;
-            border-radius: 9999px; /* rounded-full */
-            font-size: 1rem;
-            font-weight: 500;
-            color: white;
-            background-color: #3b82f6; /* bg-blue-600 */
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
-            transition: all 0.2s ease-in-out;
-        }
-        .send-message-button:hover {
-            background-color: #2563eb; /* hover:bg-blue-700 */
-            transform: scale(1.05); /* hover:scale-105 */
-        }
-        .send-message-button:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5), 0 0 0 6px rgba(59, 130, 246, 0.1);
-        }
-
-        /* Padding verticale del main ridotto per allinearsi all'About Me */
-        main {
-            margin-top: 10rem; /* Regola questo in base all'altezza del tuo header */
-            padding-top: 2rem; /* Aggiungi un piccolo padding in cima al main */
-        }
-
-        /* Stili per i titoli delle sezioni per replicare l'About Me */
-        .section-title {
-            @apply text-2xl md:text-3xl font-bold mb-6 text-gray-900;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Write Me - PepoBlog</title>
+  <link rel="icon" href="assets/site.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
+
 <header class="bg-white shadow-lg border-b-4 border-blue-500 fixed top-0 left-0 right-0 z-50">
-    <div class="max-w-6xl mx-auto px-4 py-4 md:py-8">
-        <div class="flex items-center justify-center mb-6">
-            <div class="flex-shrink-0 mr-2 md:mr-8">
-                <img src="assets/logo.png" alt="PepoBlog Logo" class="h-16 md:h-20" />
-            </div>
-            <div class="text-center md:text-left px-2">
-                <h1 class="text-2xl md:text-4xl font-bold bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent mb-2">PepoBlog</h1>
-                <p class="text-base md:text-xl text-gray-600">Personal stories, thoughts,<br>and inspiration</p>
-            </div>
-        </div>
-        
-        <nav class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full px-4 md:px-8 py-4 flex justify-center space-x-3 md:space-x-8 shadow-lg">
-            <a href="index.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full md:text-lg">Home</a>
-            <a href="articles.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all md:text-lg">Articles</a>
-            <a href="about.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full md:text-lg">About Me</a>
-            <a href="contact.html" class="text-white font-semibold bg-white/20 px-3 md:px-4 py-2 rounded-full text-base md:text-lg">Write Me</a>
-        </nav>
+  <div class="max-w-6xl mx-auto px-4 py-4 md:py-8">
+    <div class="flex items-center justify-center mb-6">
+      <div class="flex-shrink-0 mr-2 md:mr-8">
+        <img src="assets/logo.png" alt="PepoBlog Logo" class="h-16 md:h-20" />
+      </div>
+      <div class="text-center md:text-left px-2">
+        <h1 class="text-2xl md:text-4xl font-bold bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent mb-2">PepoBlog</h1>
+        <p class="text-base md:text-xl text-gray-600">Personal stories, thoughts,<br>and inspiration</p>
+      </div>
     </div>
+
+    <nav class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full px-4 md:px-8 py-4 flex justify-center space-x-3 md:space-x-8 shadow-lg">
+      <a href="index.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full md:text-lg">Home</a>
+      <a href="articles.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all md:text-lg">Articles</a>
+      <a href="about.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full md:text-lg">About Me</a>
+      <a href="contact.html" class="text-white font-semibold bg-white/20 px-3 md:px-4 py-2 rounded-full text-base md:text-lg">Write Me</a>
+    </nav>
+  </div>
 </header>
 
-<main class="max-w-4xl mx-auto px-4 py-8">
-    <section class="mb-12 md:mb-16 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-            Get in Touch
-        </h2>
-        <p class="text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto">
-            Whether you have a question, want to collaborate, or just say hello, I'd love to hear from you! Feel free to reach out through any of the channels below.
-        </p>
-    </section>
+<main class="max-w-3xl mx-auto px-4 py-8 mt-48 md:mt-64">
+  <div class="bg-white p-6 md:p-8 lg:p-10 rounded-xl shadow-lg">
+    <header class="mb-6 md:mb-8">
+      <h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-gray-900 leading-tight">Get in Touch</h2>
+      <p class="text-base md:text-lg text-gray-700 leading-relaxed">I'd love to hear from you. Send me a message and I'll get back to you as soon as possible.</p>
+    </header>
 
-    <div class="space-y-12 md:space-y-16"> <section class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
-            <h3 class="section-title">Send Me a Message</h3>
-            <form action="#" method="POST" class="space-y-6">
-                <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
-                    <input type="text" id="name" name="name" autocomplete="name" class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-base placeholder-gray-400" placeholder="John Doe" required>
-                </div>
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Your Email</label>
-                    <input type="email" id="email" name="email" autocomplete="email" class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-base placeholder-gray-400" placeholder="you@example.com" required>
-                </div>
-                <div>
-                    <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Your Message</label>
-                    <textarea id="message" name="message" rows="6" class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-base placeholder-gray-400" placeholder="Type your message here..." required></textarea>
-                </div>
-                <div class="text-right">
-                    <button type="submit" class="send-message-button">
-                        Send Message
-                    </button>
-                </div>
-            </form>
-        </section>
+    <form action="https://formsubmit.co/giuseppe.allocca04@gmail.com" method="POST" class="space-y-6">
+      <input type="hidden" name="_captcha" value="false">
+      <div>
+        <label class="block text-base md:text-lg font-semibold text-gray-900 mb-3">Name</label>
+        <input type="text" name="name" required class="w-full border-2 border-gray-300 p-3 md:p-4 rounded-xl focus:border-blue-500 focus:outline-none transition-colors text-base md:text-lg" />
+      </div>
+      <div>
+        <label class="block text-base md:text-lg font-semibold text-gray-900 mb-3">Email</label>
+        <input type="email" name="email" required class="w-full border-2 border-gray-300 p-3 md:p-4 rounded-xl focus:border-blue-500 focus:outline-none transition-colors text-base md:text-lg" />
+      </div>
+      <div>
+        <label class="block text-base md:text-lg font-semibold text-gray-900 mb-3">Message</label>
+        <textarea name="message" required class="w-full border-2 border-gray-300 p-3 md:p-4 rounded-xl h-32 md:h-40 focus:border-blue-500 focus:outline-none transition-colors resize-none text-base md:text-lg"></textarea>
+      </div>
+      <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-3 md:py-4 rounded-xl hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 font-semibold shadow-lg text-base md:text-lg">Send Message</button>
+    </form>
+  </div>
 
-        <section class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
-            <h3 class="section-title">My Profiles</h3>
-            <div class="space-y-6">
-                <a href="https://www.linkedin.com/in/pepoblog" target="_blank" rel="noopener noreferrer" class="contact-entry-item group">
-                    <div class="contact-icon-wrapper icon-linkedin">
-                        <i class="fab fa-linkedin-in"></i>
-                    </div>
-                    <div>
-                        <p class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">linkedin.com/in/pepoblog</p>
-                        <p class="text-gray-600 text-sm">Connect with me on LinkedIn</p>
-                    </div>
-                </a>
-
-                <a href="https://www.instagram.com/pepoblog" target="_blank" rel="noopener noreferrer" class="contact-entry-item group">
-                    <div class="contact-icon-wrapper icon-instagram">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <div>
-                        <p class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">@pepoblog</p>
-                        <p class="text-gray-600 text-sm">Follow my updates on Instagram</p>
-                    </div>
-                </a>
-
-                <a href="https://github.com/pepoblog" target="_blank" rel="noopener noreferrer" class="contact-entry-item group">
-                    <div class="contact-icon-wrapper icon-github">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <div>
-                        <p class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">github.com/pepoblog</p>
-                        <p class="text-gray-600 text-sm">Explore my projects on GitHub</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <section class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
-            <h3 class="section-title">Direct Contact</h3>
-            <div class="space-y-6">
-                <a href="mailto:pepoblog@email.com" class="contact-entry-item group">
-                    <div class="contact-icon-wrapper icon-email">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div>
-                        <p class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">pepoblog@email.com</p>
-                        <p class="text-gray-600 text-sm">Send me an email</p>
-                    </div>
-                </a>
-                <a href="tel:+391234567890" class="contact-entry-item group">
-                    <div class="contact-icon-wrapper icon-phone">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <div>
-                        <p class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">+39 123 4567890</p>
-                        <p class="text-gray-600 text-sm">Call or message me</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-    </div>
+  <!-- Contact Info Section -->
+  <div class="bg-white p-6 md:p-8 lg:p-10 mt-12 rounded-xl shadow-lg">
+    <h3 class="text-xl md:text-2xl font-bold mb-6 text-gray-900">Direct Contacts</h3>
+    <ul class="space-y-4 text-base md:text-lg text-gray-700">
+      <li class="flex items-center gap-3">
+        📞 <span class="font-medium">Phone:</span> <a href="tel:+393334445556" class="text-blue-600 hover:underline">+39 333 444 5556</a>
+      </li>
+      <li class="flex items-center gap-3">
+        📧 <span class="font-medium">Email:</span> <a href="mailto:giuseppe.allocca04@gmail.com" class="text-blue-600 hover:underline">giuseppe.allocca04@gmail.com</a>
+      </li>
+      <li class="flex items-center gap-3">
+        📸 <span class="font-medium">Instagram:</span> <a href="https://instagram.com/your_username" target="_blank" class="text-blue-600 hover:underline">@your_username</a>
+      </li>
+      <li class="flex items-center gap-3">
+        💼 <span class="font-medium">LinkedIn:</span> <a href="https://linkedin.com/in/your-username" target="_blank" class="text-blue-600 hover:underline">linkedin.com/in/your-username</a>
+      </li>
+    </ul>
+  </div>
 </main>
 
 <footer class="mt-12 md:mt-16 p-6 md:p-8 text-center text-sm md:text-base text-gray-600 border-t bg-white">
-    <p>© 2025 PepoBlog. All rights reserved.</p>
+  <p>© 2025 PepoBlog. All rights reserved.</p>
 </footer>
 
 </body>
