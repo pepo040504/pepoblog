@@ -1,164 +1,277 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contacts - PepoBlog</title> <link rel="icon" href="site.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-    /* Puoi aggiungere qui eventuali stili personalizzati se non coperti da Tailwind */
-    .contact-info-item {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem; /* Spazio tra icona e testo */
-        padding: 1.25rem;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    }
-    .contact-info-item:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 12px rgba(0,0,0,0.1);
-    }
-    .contact-icon-wrapper {
-        flex-shrink: 0;
-        width: 4rem; /* Dimensione aumentata per le icone */
-        height: 4rem;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(45deg, var(--tw-gradient-from), var(--tw-gradient-to)); /* Colore gradiente */
-        color: white;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    .contact-icon-wrapper svg {
-        width: 2.25rem; /* Dimensione dell'SVG */
-        height: 2.25rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get in Touch - Contatti</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Stili Generali */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f7fa;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Allinea in alto per ridurre lo spazio verticale iniziale */
+            min-height: 100vh; /* Rimuovi o riduci questo se vuoi meno spazio verticale totale */
+            padding: 20px 0; /* Ridotto padding verticale generale */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 960px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px; /* Padding ridotto per il contenitore principale */
+        }
+
+        h1 {
+            color: #4a00e0;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .description {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 40px; /* Spazio sotto la descrizione */
+        }
+
+        /* Stili delle Sezioni */
+        .contact-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Layout responsivo */
+            gap: 30px; /* Spazio tra le colonne */
+            background-color: #fff;
+            padding: 30px; /* Padding della card principale */
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-card {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section-card h2 {
+            color: #6a11cb;
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        /* Stili Modulo di Contatto */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: calc(100% - 20px); /* Regola per padding interno */
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #6a11cb;
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .send-button {
+            background-color: #6a11cb;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: auto;
+            margin-top: 10px;
+        }
+
+        .send-button:hover {
+            background-color: #8c42e2;
+        }
+
+        /* Stili Contatti e Profili */
+        .contact-item,
+        .profile-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px; /* Spazio tra icona e testo */
+        }
+
+        .contact-item:last-child,
+        .profile-item:last-child {
+            margin-bottom: 0; /* Rimuove il margin-bottom dall'ultimo elemento */
+        }
+
+        .icon-circle {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #e0f2f7; /* Colore di sfondo per l'icona */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.4em;
+            color: #007bff; /* Colore predefinito per l'icona */
+        }
+
+        .icon-circle.email { background-color: #ffe0b2; color: #ff9800; } /* Giallo per email */
+        .icon-circle.linkedin { background-color: #e3f2fd; color: #0077b5; } /* Blu LinkedIn */
+        .icon-circle.instagram { background-color: #fce4ec; color: #E1306C; } /* Rosa Instagram */
+        .icon-circle.github { background-color: #e0e0e0; color: #333; } /* Grigio GitHub */
+        .icon-circle.phone { background-color: #d1c4e9; color: #673ab7; } /* Viola Telefono */
+
+
+        .contact-info a,
+        .profile-info a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover,
+        .profile-info a:hover {
+            color: #6a11cb;
+        }
+
+        .contact-info span,
+        .profile-info span {
+            display: block;
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 2px;
+        }
+
+        /* Media Queries per Responsività */
+        @media (max-width: 768px) {
+            .contact-sections {
+                grid-template-columns: 1fr; /* Una colonna su schermi più piccoli */
+                gap: 25px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .description {
+                margin-bottom: 30px;
+            }
+
+            .section-card {
+                padding: 20px;
+            }
+
+            .section-card h2 {
+                font-size: 1.6em;
+                margin-bottom: 20px;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                width: calc(100% - 16px);
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
-<header class="bg-white shadow-lg border-b-4 border-blue-500 fixed top-0 left-0 right-0 z-50">
-  <div class="max-w-6xl mx-auto px-4 py-4 md:py-8">
-    <div class="flex items-center justify-center mb-6">
-      <div class="flex-shrink-0 mr-2 md:mr-8">
-        <img src="assets/logo.png" alt="PepoBlog Logo" class="h-16 md:h-20" />
-      </div>
-      <div class="text-center md:text-left px-2">
-        <h1 class="text-2xl md:text-4xl font-bold bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent mb-2">PepoBlog</h1>
-        <p class="text-base md:text-xl text-gray-600">Personal stories, thoughts,<br>and inspiration</p>
-      </div>
+<body>
+    <div class="container">
+        <h1>Get in Touch</h1>
+        <p class="description">Whether you have a question, want to collaborate, or just say hello, I'd love to hear from you! Feel free to reach out through any of the channels below.</p>
+
+        <div class="contact-sections">
+            <div class="section-card send-message-section">
+                <h2>Send Me a Message</h2>
+                <form action="#" method="POST"> <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="send-button">Send Message</button>
+                </form>
+            </div>
+
+            <div class="section-card my-profiles-section">
+                <h2>My Profiles</h2>
+                <div class="profile-item">
+                    <div class="icon-circle linkedin"><i class="fab fa-linkedin-in"></i></div>
+                    <div class="profile-info">
+                        <a href="https://linkedin.com/in/pepoblog" target="_blank">linkedin.com/in/pepoblog</a>
+                        <span>Connect with me on LinkedIn</span>
+                    </div>
+                </div>
+                <div class="profile-item">
+                    <div class="icon-circle instagram"><i class="fab fa-instagram"></i></div>
+                    <div class="profile-info">
+                        <a href="https://instagram.com/pepoblog" target="_blank">@pepoblog</a>
+                        <span>Follow my updates on Instagram</span>
+                    </div>
+                </div>
+                <div class="profile-item">
+                    <div class="icon-circle github"><i class="fab fa-github"></i></div>
+                    <div class="profile-info">
+                        <a href="https://github.com/pepoblog" target="_blank">github.com/pepoblog</a>
+                        <span>Explore my projects on GitHub</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card direct-contact-section">
+                <h2>Direct Contact</h2>
+                <div class="contact-item">
+                    <div class="icon-circle email"><i class="fas fa-envelope"></i></div>
+                    <div class="contact-info">
+                        <a href="mailto:pepoblog@email.com">pepoblog@email.com</a>
+                        <span>Send me an email</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon-circle phone"><i class="fas fa-phone"></i></div>
+                    <div class="contact-info">
+                        <a href="tel:+391234567890">+39 123 4567890</a> <span>Call or message me</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <nav class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full px-4 md:px-8 py-4 flex justify-center space-x-3 md:space-x-8 shadow-lg">
-      <a href="index.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full md:text-lg">Home</a>
-      <a href="articles.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all md:text-lg">Articles</a>
-      <a href="about.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full md:text-lg">About Me</a>
-      <a href="contact.html" class="text-white font-semibold bg-white/20 px-3 md:px-4 py-2 rounded-full text-base md:text-lg">Contacts</a> </nav>
-  </div>
-</header>
-
-<main class="max-w-4xl mx-auto px-4 py-8 mt-48 md:mt-64">
-  
-  <section class="mb-16 md:mb-20 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-      Get in Touch
-    </h2>
-    <p class="text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto">
-      Whether you have a question, want to collaborate, or just say hello, I'd love to hear from you! Feel free to reach out through any of the channels below.
-    </p>
-  </section>
-
-  <section>
-    <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 grid md:grid-cols-2 gap-12">
-      
-      <div class="space-y-8">
-        <h3 class="text-2xl md:text-3xl font-bold mb-6 text-gray-900">My Contacts</h3>
-        
-        <a href="mailto:pepoblog@email.com" class="contact-info-item group" style="--tw-gradient-from: #3B82F6; --tw-gradient-to: #6366F1;">
-            <div class="contact-icon-wrapper">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                </svg>
-            </div>
-            <div>
-                <p class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">pepoblog@email.com</p>
-                <p class="text-gray-600 text-sm">Send me an email</p>
-            </div>
-        </a>
-
-        <a href="https://www.linkedin.com/in/pepoblog" target="_blank" rel="noopener noreferrer" class="contact-info-item group" style="--tw-gradient-from: #0077B5; --tw-gradient-to: #00A0DC;">
-            <div class="contact-icon-wrapper">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38.119-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.98v16h4.98v-10.935c0-3.372 4.479-3.564 4.479 0v10.935h5v-11.173c0-4.013-4.472-4.38-4.472-0l.001.173z"/>
-                </svg>
-            </div>
-            <div>
-                <p class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">linkedin.com/in/pepoblog</p>
-                <p class="text-gray-600 text-sm">Connect with me on LinkedIn</p>
-            </div>
-        </a>
-
-        <a href="https://www.instagram.com/pepoblog" target="_blank" rel="noopener noreferrer" class="contact-info-item group" style="--tw-gradient-from: #E1306C; --tw-gradient-to: #FD1D1D;">
-            <div class="contact-icon-wrapper">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.204-.012 3.584-.07 4.85-0.148 3.252-1.691 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069s-3.583-.012-4.85-.07c-3.251-0.148-4.771-1.691-4.919-4.919-0.058-1.265-0.069-1.645-0.069-4.849 0-3.204.012-3.584.07-4.85 0.148-3.252 1.691-4.771 4.919-4.919 1.265-0.058 1.644-0.069 4.849-0.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-0.059 1.281-0.073 1.689-0.073 4.948s.014 3.668.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.073 4.948.073s3.668-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.782-6.979-6.979-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.44-.645 1.44-1.44s-.645-1.44-1.44-1.44z"/>
-                </svg>
-            </div>
-            <div>
-                <p class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">@pepoblog</p>
-                <p class="text-gray-600 text-sm">Follow my updates on Instagram</p>
-            </div>
-        </a>
-
-        <a href="https://github.com/pepoblog" target="_blank" rel="noopener noreferrer" class="contact-info-item group" style="--tw-gradient-from: #1A1A1A; --tw-gradient-to: #333333;">
-            <div class="contact-icon-wrapper">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.004.072 1.531 1.032 1.531 1.032.892 1.529 2.341 1.089 2.91.833.091-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.931 0-1.096.392-1.988 1.03-2.69-.104-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.026 2.747-1.026.546 1.379.202 2.398.096 2.65.649.702 1.029 1.593 1.029 2.69 0 3.826-2.339 4.673-4.566 4.92.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.579.688.482C21.137 20.19 24 16.425 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd" />
-                </svg>
-            </div>
-            <div>
-                <p class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">github.com/pepoblog</p>
-                <p class="text-gray-600 text-sm">Explore my projects on GitHub</p>
-            </div>
-        </a>
-      </div>
-
-      <div>
-        <h3 class="text-2xl md:text-3xl font-bold mb-6 text-gray-900">Send Me a Message</h3>
-        <form action="#" method="POST" class="space-y-6">
-          <div>
-            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
-            <input type="text" name="name" id="name" autocomplete="name" class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-base placeholder-gray-400" placeholder="John Doe">
-          </div>
-          <div>
-            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Your Email</label>
-            <input type="email" name="email" id="email" autocomplete="email" class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-base placeholder-gray-400" placeholder="you@example.com">
-          </div>
-          <div>
-            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Your Message</label>
-            <textarea id="message" name="message" rows="6" class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-base placeholder-gray-400" placeholder="Type your message here..."></textarea>
-          </div>
-          <div class="text-right">
-            <button type="submit" class="inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-base font-medium rounded-full text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all transform hover:scale-105">
-              Send Message
-            </button>
-          </div>
-        </form>
-      </div>
-
-    </div>
-  </section>
-
-</main>
-
-<footer class="mt-12 md:mt-16 p-6 md:p-8 text-center text-sm md:text-base text-gray-600 border-t bg-white">
-  <p>© 2025 PepoBlog. All rights reserved.</p>
-</footer>
-
 </body>
 </html>
