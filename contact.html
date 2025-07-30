@@ -1,332 +1,213 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get in Touch - Contatti</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacts - PepoBlog</title>
+    <link rel="icon" href="site.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        :root {
-            --primary-blue: #4a00e0; /* Blu scuro */
-            --secondary-purple: #9d50bb; /* Viola più chiaro */
-            --text-dark: #333;
-            --text-light: #555;
-            --card-bg: #fff;
-            --section-card-bg: #f9f9f9; /* Sfondo leggermente grigio per le sezioni interne */
-            --border-light: #eee;
-            --input-border: #ddd;
-            --input-focus-border: #6a11cb; /* Colore viola per il focus */
-            --button-bg: #6a11cb;
-            --button-hover-bg: #8c42e2;
-            --icon-circle-bg: #e0f2f7; /* Sfondo generico icona */
-        }
+        body { font-family: 'Inter', sans-serif; }
 
-        /* Stili Generali e Reset */
-        body {
-            font-family: 'Poppins', Arial, sans-serif; /* Usa Poppins */
-            margin: 0;
-            background-color: #f4f7fa; /* Sfondo generale della pagina */
-            color: var(--text-dark);
-            display: flex;
-            flex-direction: column; /* Per allineare banner e poi il resto */
-            min-height: 100vh;
-        }
-
-        /* Stile del Banner (simile all'immagine) */
-        .header-banner {
-            background: linear-gradient(to right, #4a00e0, #9d50bb); /* Gradiente dell'immagine */
-            color: white;
-            padding: 60px 20px; /* Padding verticale significativo per il banner */
-            text-align: center;
-        }
-
-        .header-banner h1 {
-            font-size: 2.8em;
-            margin-bottom: 10px;
-            font-weight: 700; /* Bold per il titolo */
-        }
-
-        .header-banner p {
-            font-size: 1.15em;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            color: rgba(255, 255, 255, 0.9); /* Leggermente meno bianco */
-        }
-
-        /* Contenitore principale della card */
-        .main-content-wrapper {
-            width: 90%;
-            max-width: 1000px; /* Larghezza massima aumentata leggermente */
-            margin: -80px auto 40px auto; /* Spostato più in alto per sovrapporsi al banner */
-            background-color: var(--card-bg);
-            padding: 40px; /* Padding della card principale, leggermente ridotto se necessario */
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Ombra più pronunciata */
-            box-sizing: border-box; /* Include padding e border nella larghezza/altezza */
-        }
-
-        /* Layout delle sezioni interne */
-        .contact-sections {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Layout responsivo */
-            gap: 30px; /* Spazio tra le colonne */
-        }
-
-        .section-card {
-            background-color: var(--card-bg); /* Sfondo bianco come la card principale */
-            padding: 30px; /* Padding all'interno di ogni sezione */
-            border-radius: 10px;
-            /* border: 1px solid var(--border-light); No border visibile nell'immagine per queste card */
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Ombra più leggera per le singole sezioni */
-        }
-
-        .section-card h2 {
-            color: var(--primary-blue); /* Colore viola come nell'immagine */
-            margin-top: 0;
-            margin-bottom: 25px;
-            font-size: 1.6em; /* Dimensione del titolo delle sezioni */
-            font-weight: 600;
-            /* border-bottom: 2px solid #e0e0e0; */ /* Rimosso, non presente nell'immagine */
-            padding-bottom: 0; /* Rimosso */
-        }
-
-        /* Stili Modulo di Contatto */
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500; /* Meno bold */
-            color: var(--text-dark);
-            font-size: 0.95em;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%; /* Occupa tutta la larghezza disponibile */
-            padding: 12px;
-            border: 1px solid var(--input-border);
-            border-radius: 8px; /* Bordi più arrotondati */
-            font-size: 1em;
-            transition: border-color 0.3s, box-shadow 0.3s;
-            box-sizing: border-box; /* Importante per width: 100% con padding */
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--input-focus-border);
-            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.2); /* Ombra leggera al focus */
-            outline: none;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px; /* Altezza leggermente aumentata */
-        }
-
-        .send-button {
-            background-color: var(--button-bg);
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 8px; /* Bordi arrotondati come nell'immagine */
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            width: auto; /* Per non farlo allungare su tutta la larghezza */
-            margin-top: 10px;
-            align-self: flex-start; /* Allinea a sinistra */
-            font-weight: 600;
-        }
-
-        .send-button:hover {
-            background-color: var(--button-hover-bg);
-        }
-
-        /* Stili Contatti e Profili */
-        .contact-item,
-        .profile-item {
+        /* Stili personalizzati per gli elementi di contatto/profilo */
+        /* Questi stili sono stati unificati per email, profili e telefono */
+        .contact-entry-item {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
-            gap: 15px; /* Spazio tra icona e testo */
+            gap: 1.5rem; /* Spazio tra icona e testo */
+            padding: 1.25rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
-
-        .contact-item:last-child,
-        .profile-item:last-child {
-            margin-bottom: 0; /* Rimuove il margin-bottom dall'ultimo elemento */
+        .contact-entry-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.1);
         }
-
-        .icon-circle {
-            width: 50px; /* Dimensioni leggermente più grandi per le icone */
-            height: 50px;
+        .contact-icon-wrapper {
+            flex-shrink: 0;
+            width: 4rem; /* Dimensione aumentata per le icone */
+            height: 4rem;
             border-radius: 50%;
             display: flex;
-            justify-content: center;
             align-items: center;
-            font-size: 1.6em; /* Dimensione dell'icona */
+            justify-content: center;
+            color: white; /* Colore dell'icona (bianco) */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            font-size: 2.25rem; /* Dimensione dell'icona Font Awesome */
         }
 
-        /* Colori specifici delle icone come nell'immagine */
-        .icon-circle.email { background-color: #ffe0b2; color: #ff9800; } /* Arancione/Giallo */
-        .icon-circle.linkedin { background-color: #e3f2fd; color: #0077b5; } /* Blu LinkedIn */
-        .icon-circle.instagram { background-color: #fce4ec; color: #E1306C; } /* Rosa Instagram */
-        .icon-circle.github { background-color: #e0e0e0; color: #333; } /* Grigio GitHub */
-        .icon-circle.phone { background-color: #d1c4e9; color: #673ab7; } /* Viola Telefono (assumendo un colore coerente) */
+        /* Colori specifici per le icone, riutilizzando i colori di Tailwind dove possibile o aggiungendo classi */
+        .icon-email { background: linear-gradient(45deg, #3B82F6, #6366F1); } /* Blu/Indaco */
+        .icon-linkedin { background: linear-gradient(45deg, #0077B5, #00A0DC); } /* Blu LinkedIn */
+        .icon-instagram { background: linear-gradient(45deg, #E1306C, #FD1D1D); } /* Rosa/Rosso Instagram */
+        .icon-github { background: linear-gradient(45deg, #1A1A1A, #333333); } /* Grigio scuro GitHub */
+        .icon-phone { background: linear-gradient(45deg, #8B5CF6, #C084FC); } /* Viola per il telefono (esempio) */
 
-
-        .contact-info a,
-        .profile-info a {
-            text-decoration: none;
-            color: var(--text-dark); /* Testo scuro */
-            font-weight: 600; /* Più bold */
-            font-size: 1.05em;
-            transition: color 0.3s;
+        /* Stili per il pulsante Send Message per mantenere lo stile esistente di Tailwind */
+        .send-message-button {
+            display: inline-flex;
+            justify-center: center;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            border: none; /* Rimuovi border border-transparent */
+            border-radius: 9999px; /* rounded-full */
+            font-size: 1rem;
+            font-weight: 500;
+            color: white;
+            background-color: #3b82f6; /* bg-blue-600 */
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+            transition: all 0.2s ease-in-out; /* transition-all transform */
+        }
+        .send-message-button:hover {
+            background-color: #2563eb; /* hover:bg-blue-700 */
+            transform: scale(1.05); /* hover:scale-105 */
+        }
+        .send-message-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5), 0 0 0 6px rgba(59, 130, 246, 0.1); /* focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 */
         }
 
-        .contact-info a:hover,
-        .profile-info a:hover {
-            color: var(--primary-blue); /* Colore al hover */
+        /* Padding verticale del main ridotto */
+        main {
+            margin-top: 10rem; /* Regola questo valore per ridurre lo spazio tra header e contenuto */
+            /* Puoi provare anche mt-32 o mt-40 a seconda di quanto vuoi ridurre */
+            padding-top: 2rem; /* Aggiungi un piccolo padding in cima al main */
         }
 
-        .contact-info span,
-        .profile-info span {
-            display: block;
-            font-size: 0.9em;
-            color: var(--text-light); /* Testo più chiaro */
-            margin-top: 2px;
-        }
-
-        /* Media Queries per Responsività */
-        @media (max-width: 768px) {
-            .header-banner {
-                padding: 40px 15px;
-            }
-            .header-banner h1 {
-                font-size: 2.2em;
-            }
-            .header-banner p {
-                font-size: 1em;
-            }
-
-            .main-content-wrapper {
-                margin-top: -60px; /* Regola la sovrapposizione */
-                padding: 25px;
-                width: 95%; /* Meno margine ai lati su mobile */
-            }
-
-            .contact-sections {
-                grid-template-columns: 1fr; /* Una colonna su schermi più piccoli */
-                gap: 25px;
-            }
-
-            .section-card {
-                padding: 20px;
-            }
-
-            .section-card h2 {
-                font-size: 1.4em;
-                margin-bottom: 20px;
-            }
-
-            .form-group input,
-            .form-group textarea {
-                padding: 10px;
-            }
-            .send-button {
-                width: 100%; /* Pulsante a larghezza piena su mobile */
-            }
-            .icon-circle {
-                width: 45px;
-                height: 45px;
-                font-size: 1.4em;
-            }
-            .contact-info a, .profile-info a {
-                font-size: 1em;
-            }
-            .contact-info span, .profile-info span {
-                font-size: 0.85em;
-            }
+        /* Stili per i titoli delle sezioni */
+        .section-title {
+            @apply text-2xl md:text-3xl font-bold mb-6 text-gray-900;
         }
     </style>
 </head>
-<body>
-    <header class="header-banner">
-        <h1>Get in Touch</h1>
-        <p>Whether you have a question, want to collaborate, or just say hello, I'd love to hear from you! Feel free to reach out through any of the channels below.</p>
-    </header>
+<body class="bg-gray-50 text-gray-900">
+<header class="bg-white shadow-lg border-b-4 border-blue-500 fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 md:py-8">
+        <div class="flex items-center justify-center mb-6">
+            <div class="flex-shrink-0 mr-2 md:mr-8">
+                <img src="assets/logo.png" alt="PepoBlog Logo" class="h-16 md:h-20" />
+            </div>
+            <div class="text-center md:text-left px-2">
+                <h1 class="text-2xl md:text-4xl font-bold bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent mb-2">PepoBlog</h1>
+                <p class="text-base md:text-xl text-gray-600">Personal stories, thoughts,<br>and inspiration</p>
+            </div>
+        </div>
+        
+        <nav class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full px-4 md:px-8 py-4 flex justify-center space-x-3 md:space-x-8 shadow-lg">
+            <a href="index.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full md:text-lg">Home</a>
+            <a href="articles.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full transition-all md:text-lg">Articles</a>
+            <a href="about.html" class="text-base text-blue-100 hover:text-white hover:bg-white/10 px-3 md:px-4 py-2 rounded-full md:text-lg">About Me</a>
+            <a href="contact.html" class="text-white font-semibold bg-white/20 px-3 md:px-4 py-2 rounded-full text-base md:text-lg">Contacts</a>
+        </nav>
+    </div>
+</header>
 
-    <div class="main-content-wrapper">
-        <div class="contact-sections">
-            <div class="section-card send-message-section">
-                <h2>Send Me a Message</h2>
-                <form action="#" method="POST"> <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+<main class="max-w-4xl mx-auto px-4 py-8">
+    <section class="mb-12 md:mb-16 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            Get in Touch
+        </h2>
+        <p class="text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto">
+            Whether you have a question, want to collaborate, or just say hello, I'd love to hear from you! Feel free to reach out through any of the channels below.
+        </p>
+    </section>
+
+    <section>
+        <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 grid md:grid-cols-2 gap-12">
+            <div>
+                <h3 class="section-title">Send Me a Message</h3>
+                <form action="#" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+                        <input type="text" name="name" id="name" autocomplete="name" class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-base placeholder-gray-400" placeholder="John Doe" required>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Your Email</label>
+                        <input type="email" name="email" id="email" autocomplete="email" class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-base placeholder-gray-400" placeholder="you@example.com" required>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Your Message</label>
+                        <textarea id="message" name="message" rows="6" class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-base placeholder-gray-400" placeholder="Type your message here..." required></textarea>
                     </div>
-                    <button type="submit" class="send-button">Send Message</button>
+                    <div class="text-right">
+                        <button type="submit" class="send-message-button">
+                            Send Message
+                        </button>
+                    </div>
                 </form>
             </div>
 
-            <div class="section-card my-profiles-section">
-                <h2>My Profiles</h2>
-                <div class="profile-item">
-                    <div class="icon-circle linkedin"><i class="fab fa-linkedin-in"></i></div>
-                    <div class="profile-info">
-                        <a href="https://linkedin.com/in/pepoblog" target="_blank">linkedin.com/in/pepoblog</a>
-                        <span>Connect with me on LinkedIn</span>
-                    </div>
-                </div>
-                <div class="profile-item">
-                    <div class="icon-circle instagram"><i class="fab fa-instagram"></i></div>
-                    <div class="profile-info">
-                        <a href="https://instagram.com/pepoblog" target="_blank">@pepoblog</a>
-                        <span>Follow my updates on Instagram</span>
-                    </div>
-                </div>
-                <div class="profile-item">
-                    <div class="icon-circle github"><i class="fab fa-github"></i></div>
-                    <div class="profile-info">
-                        <a href="https://github.com/pepoblog" target="_blank">github.com/pepoblog</a>
-                        <span>Explore my projects on GitHub</span>
-                    </div>
-                </div>
-            </div>
+            <div class="grid grid-cols-1 gap-8"> <div>
+                    <h3 class="section-title">My Profiles</h3>
+                    <div class="space-y-6">
+                        <a href="https://www.linkedin.com/in/pepoblog" target="_blank" rel="noopener noreferrer" class="contact-entry-item group">
+                            <div class="contact-icon-wrapper icon-linkedin">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <div>
+                                <p class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">linkedin.com/in/pepoblog</p>
+                                <p class="text-gray-600 text-sm">Connect with me on LinkedIn</p>
+                            </div>
+                        </a>
 
-            <div class="section-card direct-contact-section">
-                <h2>Direct Contact</h2>
-                <div class="contact-item">
-                    <div class="icon-circle email"><i class="fas fa-envelope"></i></div>
-                    <div class="contact-info">
-                        <a href="mailto:pepoblog@email.com">pepoblog@email.com</a>
-                        <span>Send me an email</span>
+                        <a href="https://www.instagram.com/pepoblog" target="_blank" rel="noopener noreferrer" class="contact-entry-item group">
+                            <div class="contact-icon-wrapper icon-instagram">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <div>
+                                <p class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">@pepoblog</p>
+                                <p class="text-gray-600 text-sm">Follow my updates on Instagram</p>
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/pepoblog" target="_blank" rel="noopener noreferrer" class="contact-entry-item group">
+                            <div class="contact-icon-wrapper icon-github">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div>
+                                <p class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">github.com/pepoblog</p>
+                                <p class="text-gray-600 text-sm">Explore my projects on GitHub</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
-                <div class="contact-item">
-                    <div class="icon-circle phone"><i class="fas fa-phone"></i></div>
-                    <div class="contact-info">
-                        <a href="tel:+391234567890">+39 123 4567890</a> <span>Call or message me</span>
+
+                <div>
+                    <h3 class="section-title">Direct Contact</h3>
+                    <div class="space-y-6">
+                        <a href="mailto:pepoblog@email.com" class="contact-entry-item group">
+                            <div class="contact-icon-wrapper icon-email">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">pepoblog@email.com</p>
+                                <p class="text-gray-600 text-sm">Send me an email</p>
+                            </div>
+                        </a>
+                        <a href="tel:+391234567890" class="contact-entry-item group">
+                            <div class="contact-icon-wrapper icon-phone">
+                                <i class="fas fa-phone-alt"></i> </div>
+                            <div>
+                                <p class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">+39 123 4567890</p>
+                                <p class="text-gray-600 text-sm">Call or message me</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+</main>
+
+<footer class="mt-12 md:mt-16 p-6 md:p-8 text-center text-sm md:text-base text-gray-600 border-t bg-white">
+    <p>© 2025 PepoBlog. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
