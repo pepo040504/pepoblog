@@ -33,24 +33,17 @@
       border-radius: 50%;
       box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
     }
-    .cv-container {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
-    .slide {
-      display: none;
-      transition: all 0.3s ease;
-    }
-    .slide.active {
-      display: block;
-    }
+
+    /* Stili dello Slideshow unificati */
     .slideshow-container {
       position: relative;
-      max-width: 600px;
+      max-width: 400px; /* Dimensioni adeguate per un CV */
       margin: auto;
-      background: #fff;
+      background: #f8fafc; /* Sfondo chiaro per lo slideshow */
       border-radius: 12px;
       overflow: hidden;
-      aspect-ratio: 3/4;
+      aspect-ratio: 9/16; /* Adatto per pagine di CV verticali */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Ombra leggera */
     }
     
     .slide {
@@ -67,13 +60,13 @@
     .slide img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: contain; /* Assicurati che l'immagine sia contenuta senza tagliare */
       object-position: center;
     }
     
     @media (max-width: 768px) {
       .slideshow-container {
-        max-width: 400px;
+        max-width: 300px;
       }
     }
     
@@ -110,7 +103,8 @@
     .dots-container {
       text-align: center;
       padding: 20px;
-      background: transparent;
+      background: #f8fafc; /* Sfondo chiaro per i dots */
+      border-top: 1px solid #eee; /* Separatore sottile */
     }
     
     .dot {
@@ -118,14 +112,14 @@
       height: 15px;
       width: 15px;
       margin: 0 5px;
-      background-color: rgba(255,255,255,0.5);
+      background-color: #bbb;
       border-radius: 50%;
       display: inline-block;
       transition: background-color 0.3s;
     }
     
     .dot.active, .dot:hover {
-      background-color: white;
+      background-color: #3b82f6; /* Colore blu coerente con il tema */
     }
   </style>
 </head>
@@ -153,7 +147,6 @@
 
 <main class="max-w-4xl mx-auto px-4 py-8 mt-48 md:mt-64">
   
-  <!-- Hero Section -->
   <section class="mb-16 md:mb-20">
     <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
       <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
@@ -177,12 +170,10 @@
     </div>
   </section>
 
-  <!-- My Journey Timeline -->
   <section class="mb-16 md:mb-20">
     <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">My Journey</h2>
     <div class="relative">
       
-      <!-- Timeline Item 1 -->
       <div class="timeline-item relative pl-16 pb-12">
         <div class="timeline-dot"></div>
         <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
@@ -196,7 +187,6 @@
         </div>
       </div>
 
-      <!-- Timeline Item 2 -->
       <div class="timeline-item relative pl-16 pb-12">
         <div class="timeline-dot"></div>
         <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
@@ -210,7 +200,6 @@
         </div>
       </div>
 
-      <!-- Timeline Item 3 -->
       <div class="timeline-item relative pl-16 pb-12">
         <div class="timeline-dot"></div>
         <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
@@ -224,7 +213,6 @@
         </div>
       </div>
 
-      <!-- Timeline Item 4 -->
       <div class="timeline-item relative pl-16 pb-12">
         <div class="timeline-dot"></div>
         <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
@@ -238,7 +226,6 @@
         </div>
       </div>
 
-      <!-- Timeline Item 5 -->
       <div class="timeline-item relative pl-16 pb-12">
         <div class="timeline-dot"></div>
         <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
@@ -252,7 +239,6 @@
         </div>
       </div>
 
-      <!-- Timeline Item 6 -->
       <div class="timeline-item relative pl-16">
         <div class="timeline-dot"></div>
         <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 md:p-8 shadow-lg border-2 border-blue-200 hover:shadow-xl transition-all duration-300">
@@ -269,7 +255,6 @@
     </div>
   </section>
 
-  <!-- Beyond the Screen -->
   <section class="mb-16 md:mb-20">
     <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">Beyond the Screen</h2>
     <div class="grid md:grid-cols-2 gap-8">
@@ -317,18 +302,11 @@
     </div>
   </section>
 
-  <!-- Academic & Professional Background -->
   <section class="mb-16 md:mb-20">
-    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">Academic & Professional Background</h2>
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">My Curriculum Vitae</h2>
     
-    <div class="cv-container rounded-3xl p-6 md:p-8 shadow-2xl">
-      <div class="text-center mb-8">
-        <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">My Curriculum Vitae</h3>
-        <p class="text-blue-100 text-lg">Explore my academic journey, certifications, and projects</p>
-      </div>
-
-      <!-- CV Slideshow -->
-      <div class="slideshow-container shadow-lg">
+    <div class="bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-gray-100">
+      <div class="slideshow-container">
         <div class="slide active">
           <img src="assets/CV/cv1.jpg" alt="CV Page 1 - Personal Information & Education" class="cursor-pointer" onclick="openImageModal(this)">
         </div>
@@ -344,16 +322,14 @@
         <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
         <button class="next" onclick="changeSlide(1)">&#10095;</button>
       </div>
-      <br>
       <div class="dots-container">
         <span class="dot active" onclick="currentCVSlide(1)"></span>
         <span class="dot" onclick="currentCVSlide(2)"></span>
         <span class="dot" onclick="currentCVSlide(3)"></span>
       </div>
 
-      <!-- Download Button -->
-      <div class="text-center mb-8">
-        <a href="assets/CV/cv.pdf" download class="inline-flex items-center gap-3 bg-white text-purple-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+      <div class="text-center mt-8">
+        <a href="assets/CV/cv.pdf" download class="inline-flex items-center gap-3 bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
           </svg>
@@ -361,16 +337,14 @@
         </a>
       </div>
 
-      <!-- Hint text -->
-      <div class="text-center">
-        <p class="text-blue-100 text-sm">💡 Click on the CV images to view them in full size</p>
+      <div class="text-center mt-4">
+        <p class="text-gray-500 text-sm">💡 Click on the CV images to view them in full size</p>
       </div>
     </div>
   </section>
 
 </main>
 
-<!-- Image Modal -->
 <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 hidden z-50 flex items-center justify-center p-4" onclick="closeImageModal()">
   <div class="relative max-w-full max-h-full">
     <img id="modalImage" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
@@ -384,8 +358,8 @@
 
 <script>
 let cvSlideIndex = 0;
-const cvSlides = document.querySelectorAll('.slide');
-const cvDots = document.querySelectorAll('.dot');
+const cvSlides = document.querySelectorAll('.slideshow-container .slide'); // Seleziona slide specifiche del CV
+const cvDots = document.querySelectorAll('.dots-container .dot'); // Seleziona dot specifiche del CV
 
 function showCVSlide(index) {
   cvSlides.forEach(slide => slide.classList.remove('active'));
@@ -427,6 +401,11 @@ document.addEventListener('keydown', function(event) {
   if (event.key === 'Escape') {
     closeImageModal();
   }
+});
+
+// Inizializza lo slideshow al caricamento della pagina
+document.addEventListener('DOMContentLoaded', () => {
+  showCVSlide(0);
 });
 </script>
 
