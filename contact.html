@@ -20,12 +20,13 @@
     }
     
     /* Effetto hover per le carte */
-    .contact-card {
+    .contact-item {
       transition: all 0.3s ease;
     }
     
-    .contact-card:hover {
+    .contact-item:hover {
       transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
     
     /* Animazione per il pulsante di invio */
@@ -52,11 +53,11 @@
     }
     
     /* Icone animate */
-    .contact-icon {
+    .contact-icon-wrapper {
       transition: all 0.3s ease;
     }
     
-    .contact-card:hover .contact-icon {
+    .contact-item:hover .contact-icon-wrapper {
       transform: scale(1.1) rotate(5deg);
     }
   </style>
@@ -86,7 +87,6 @@
 
 <main class="max-w-4xl mx-auto px-4 py-8 mt-48 md:mt-64">
   
-  <!-- Hero Section -->
   <section class="mb-16 md:mb-20">
     <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
       <div class="text-center">
@@ -111,119 +111,79 @@
     </div>
   </section>
 
-  <!-- My Profiles Section -->
   <section class="mb-16 md:mb-20">
-    <h3 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">My Profiles</h3>
-    <div class="grid md:grid-cols-3 gap-8">
+    <h3 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">Reach Out to Me</h3>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       
-      <div class="contact-card bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl">
-        <div class="flex items-center gap-4 mb-6">
-          <div class="contact-icon w-12 h-12 bg-gradient-to-r from-blue-700 to-blue-900 rounded-xl flex items-center justify-center text-white text-2xl">
-            💼
-          </div>
-          <div>
-            <h4 class="text-xl font-bold text-gray-900">LinkedIn</h4>
-            <p class="text-gray-600">Professional profile</p>
-          </div>
+      <a href="https://linkedin.com/in/your-username" target="_blank" class="contact-item bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl flex flex-col items-center text-center">
+        <div class="contact-icon-wrapper w-16 h-16 bg-gradient-to-r from-blue-700 to-blue-900 rounded-xl flex items-center justify-center text-white text-3xl mb-4">
+          💼
         </div>
-        <a href="https://linkedin.com/in/your-username" target="_blank" class="text-blue-600 hover:text-blue-800 text-lg font-medium hover:underline transition-colors">
+        <h4 class="text-xl font-bold text-gray-900 mb-2">LinkedIn</h4>
+        <p class="text-blue-600 hover:text-blue-800 text-lg font-medium hover:underline transition-colors break-words">
           linkedin.com/in/your-username
-        </a>
-        <p class="text-gray-500 text-sm mt-2">Connect for professional networking</p>
-      </div>
+        </p>
+        <p class="text-gray-500 text-sm mt-1">Connect for professional networking</p>
+      </a>
 
-      <div class="contact-card bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl">
-        <div class="flex items-center gap-4 mb-6">
-          <div class="contact-icon w-12 h-12 bg-gradient-to-r from-pink-500 to-rose-600 rounded-xl flex items-center justify-center text-white text-2xl">
-            📸
-          </div>
-          <div>
-            <h4 class="text-xl font-bold text-gray-900">Instagram</h4>
-            <p class="text-gray-600">Personal life & hobbies</p>
-          </div>
+      <a href="https://instagram.com/your_username" target="_blank" class="contact-item bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl flex flex-col items-center text-center">
+        <div class="contact-icon-wrapper w-16 h-16 bg-gradient-to-r from-pink-500 to-rose-600 rounded-xl flex items-center justify-center text-white text-3xl mb-4">
+          📸
         </div>
-        <a href="https://instagram.com/your_username" target="_blank" class="text-blue-600 hover:text-blue-800 text-lg font-medium hover:underline transition-colors">
+        <h4 class="text-xl font-bold text-gray-900 mb-2">Instagram</h4>
+        <p class="text-blue-600 hover:text-blue-800 text-lg font-medium hover:underline transition-colors break-words">
           @your_username
-        </a>
-        <p class="text-gray-500 text-sm mt-2">Behind the scenes content</p>
-      </div>
+        </p>
+        <p class="text-gray-500 text-sm mt-1">Personal life & hobbies</p>
+      </a>
 
-      <div class="contact-card bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl">
-        <div class="flex items-center gap-4 mb-6">
-          <div class="contact-icon w-12 h-12 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center text-white text-2xl">
-            💻
-          </div>
-          <div>
-            <h4 class="text-xl font-bold text-gray-900">GitHub</h4>
-            <p class="text-gray-600">Code & projects</p>
-          </div>
+      <a href="https://github.com/your-username" target="_blank" class="contact-item bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl flex flex-col items-center text-center">
+        <div class="contact-icon-wrapper w-16 h-16 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center text-white text-3xl mb-4">
+          💻
         </div>
-        <a href="https://github.com/your-username" target="_blank" class="text-blue-600 hover:text-blue-800 text-lg font-medium hover:underline transition-colors">
+        <h4 class="text-xl font-bold text-gray-900 mb-2">GitHub</h4>
+        <p class="text-blue-600 hover:text-blue-800 text-lg font-medium hover:underline transition-colors break-words">
           github.com/your-username
-        </a>
-        <p class="text-gray-500 text-sm mt-2">Check out my latest work</p>
-      </div>
+        </p>
+        <p class="text-gray-500 text-sm mt-1">Check out my latest work</p>
+      </a>
 
-    </div>
-  </section>
-
-  <!-- Direct Contact Section -->
-  <section class="mb-16 md:mb-20">
-    <h3 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">Direct Contact</h3>
-    <div class="grid md:grid-cols-3 gap-8">
-      
-      <div class="contact-card bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl">
-        <div class="flex items-center gap-4 mb-6">
-          <div class="contact-icon w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-white text-2xl">
-            📞
-          </div>
-          <div>
-            <h4 class="text-xl font-bold text-gray-900">Phone</h4>
-            <p class="text-gray-600">For urgent matters</p>
-          </div>
+      <a href="tel:+393334445556" class="contact-item bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl flex flex-col items-center text-center">
+        <div class="contact-icon-wrapper w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-white text-3xl mb-4">
+          📞
         </div>
-        <a href="tel:+393334445556" class="text-blue-600 hover:text-blue-800 text-lg font-medium hover:underline transition-colors">
+        <h4 class="text-xl font-bold text-gray-900 mb-2">Phone</h4>
+        <p class="text-blue-600 hover:text-blue-800 text-lg font-medium hover:underline transition-colors break-words">
           +39 333 444 5556
-        </a>
-        <p class="text-gray-500 text-sm mt-2">Mon-Fri, 9 AM - 6 PM CET</p>
-      </div>
+        </p>
+        <p class="text-gray-500 text-sm mt-1">Mon-Fri, 9 AM - 6 PM CET (For urgent matters)</p>
+      </a>
 
-      <div class="contact-card bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl">
-        <div class="flex items-center gap-4 mb-6">
-          <div class="contact-icon w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white text-2xl">
-            📧
-          </div>
-          <div>
-            <h4 class="text-xl font-bold text-gray-900">Personal Email</h4>
-            <p class="text-gray-600">General inquiries</p>
-          </div>
+      <a href="mailto:giuseppe.allocca04@gmail.com" class="contact-item bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl flex flex-col items-center text-center">
+        <div class="contact-icon-wrapper w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white text-3xl mb-4">
+          📧
         </div>
-        <a href="mailto:giuseppe.allocca04@gmail.com" class="text-blue-600 hover:text-blue-800 text-lg font-medium hover:underline transition-colors">
+        <h4 class="text-xl font-bold text-gray-900 mb-2">Personal Email</h4>
+        <p class="text-blue-600 hover:text-blue-800 text-lg font-medium hover:underline transition-colors break-words">
           giuseppe.allocca04@gmail.com
-        </a>
-        <p class="text-gray-500 text-sm mt-2">Response within 24 hours</p>
-      </div>
+        </p>
+        <p class="text-gray-500 text-sm mt-1">Response within 24 hours (General inquiries)</p>
+      </a>
 
-      <div class="contact-card bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl">
-        <div class="flex items-center gap-4 mb-6">
-          <div class="contact-icon w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center text-white text-2xl">
-            🎓
-          </div>
-          <div>
-            <h4 class="text-xl font-bold text-gray-900">University Email</h4>
-            <p class="text-gray-600">Academic matters</p>
-          </div>
+      <a href="mailto:your.university@email.edu" class="contact-item bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl flex flex-col items-center text-center">
+        <div class="contact-icon-wrapper w-16 h-16 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center text-white text-3xl mb-4">
+          🎓
         </div>
-        <a href="mailto:your.university@email.edu" class="text-blue-600 hover:text-blue-800 text-lg font-medium hover:underline transition-colors">
+        <h4 class="text-xl font-bold text-gray-900 mb-2">University Email</h4>
+        <p class="text-blue-600 hover:text-blue-800 text-lg font-medium hover:underline transition-colors break-words">
           your.university@email.edu
-        </a>
-        <p class="text-gray-500 text-sm mt-2">Academic collaborations</p>
-      </div>
+        </p>
+        <p class="text-gray-500 text-sm mt-1">For academic matters & collaborations</p>
+      </a>
 
     </div>
   </section>
 
-  <!-- Contact Form Section -->
   <section class="mb-16 md:mb-20">
     <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
       <div class="mb-8 text-center">
