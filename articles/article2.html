@@ -56,35 +56,20 @@
     }
     
     .prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 12px;
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
-  background: rgba(0, 0, 0, 0.4);
-  border: none;
-  border-radius: 9999px;
-  user-select: none;
-  transition: background 0.3s, transform 0.2s;
-  line-height: 1;
-}
-
-.prev:hover, .next:hover {
-  background: rgba(0, 0, 0, 0.7);
-  transform: translateY(-50%) scale(1.1);
-}
-
-.prev {
-  left: 12px;
-}
-
-.next {
-  right: 12px;
-}
-
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -22px;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      background: rgba(0,0,0,0.5);
+      border: none;
+      user-select: none;
+      transition: background 0.3s;
+    }
     
     .next {
       right: 0;
@@ -250,9 +235,8 @@
             <img src="../assets/article2_photos/laurea4.jpg" alt="Graduation photo 4">
           </div>
           
-          <button class="prev" onclick="changeSlide(-1)" aria-label="Previous slide">←</button>
-          <button class="next" onclick="changeSlide(1)" aria-label="Next slide">→</button>
-
+          <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+          <button class="next" onclick="changeSlide(1)">&#10095;</button>
         </div>
         <br>
         <div class="dots-container">
